@@ -19,6 +19,22 @@
 # Common
 --------------------------------------------------------------*/
 
+.swiper-container {
+    position: relative;
+}
+
+.swiper-slide {
+    transition: transform 0.5s ease-in-out;
+    overflow: hidden;
+    position: relative;
+}
+
+.swiper-slide img {
+    width: 100%; /* Ajusta o tamanho da logo */
+    max-width: 80%; /* Torna as logos menores */
+    object-fit: contain;
+    transition: transform 0.5s ease-in-out;
+}
 
 .fas.fa-clock::before {
     content: "\f017"; /* Código para o ícone de relógio mais detalhado */
@@ -4252,7 +4268,7 @@ button {
 .brand-one-sec {
     position: relative;
     display: block;
-    background: var(--thm-base);
+    background: #eeeeee;
     padding: 100px 0px 100px;
     z-index: 1;
 }

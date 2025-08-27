@@ -12237,4 +12237,75 @@ Faq One Faq
     .services-three__single:last-child {
         margin-bottom: 0;
     }
+/* Estilo inicial do botão - cor laranja com texto preto */
+.custom-services .thm-btn-service {
+    background-color: #ff5e14; /* Cor de fundo laranja */
+    color: black; /* Cor do texto preta */
+    border: 2px solid #ff5e14; /* Borda laranja */
+    padding: 10px 20px; /* Espaçamento do botão */
+    border-radius: 5px; /* Cantos arredondados */
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.3s ease; /* Transição suave para todas as propriedades */
+}
+
+/* Efeito ao passar o mouse - botão amplia, fundo preto e texto branco */
+.custom-services .thm-btn-service:hover {
+    background-color: black; /* Fundo preto */
+    color: white; /* Texto branco */
+    transform: scale(1.1); /* Amplia o botão em 10% */
+    border: 2px solid black; /* Borda preta */
+}
+
+/* Garantir que as imagens tenham o mesmo tamanho, proporcional e retangular em pé */
+.custom-services .service-img-box {
+    width: 100%; /* Largura 100% do contêiner para garantir que se ajustem na tela */
+    max-width: 200px; /* Definir largura máxima para as imagens */
+    height: 300px; /* Altura fixa, maior que a largura, criando um formato retangular em pé */
+    overflow: hidden; /* Garante que a imagem não ultrapasse os limites da caixa */
+    margin: 0 auto; /* Centraliza a imagem horizontalmente */
+}
+
+.custom-services .service-img-box img {
+    width: 100%; /* Faz com que a imagem ocupe toda a largura da caixa */
+    height: 100%; /* Faz com que a imagem ocupe toda a altura da caixa */
+    object-fit: cover; /* Faz a imagem se ajustar sem distorcer, cortando o que for necessário */
+}
+
+/* Adicionar ajustes específicos para mobile */
+@media (max-width: 767px) {
+    .custom-services .service-img-box {
+        max-width: 200px; /* Limitar a largura para 200px também no mobile */
+        height: 300px; /* Manter a altura fixa no mobile também */
+    }
+}
+/* Ajustes para a seção de serviços */
+.footer-widget__services {
+    width: 100%; /* Garante que a div ocupe toda a largura disponível */
+}
+
+.footer-widget__services-list {
+    display: flex; /* Usando flexbox para garantir que os itens fiquem em linha */
+    flex-direction: column; /* Coloca os itens em coluna */
+    gap: 15px; /* Espaço entre os itens */
+}
+
+.footer-widget__services-list-item {
+    white-space: nowrap; /* Impede que o texto quebre e fique em várias linhas */
+    overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse os limites da coluna */
+    text-overflow: ellipsis; /* Adiciona '...' caso o texto seja muito longo */
+}
+
+/* No desktop, fazemos os ajustes para garantir que a largura seja maior */
+@media (min-width: 1024px) {
+    .footer-widget__column.footer-widget__services {
+        width: 40%; /* Aumenta a largura da coluna para 40% */
+        min-width: 250px; /* Define uma largura mínima para a coluna */
+    }
+
+    .footer-widget__services-list-item a {
+        font-size: 16px; /* Ajusta o tamanho da fonte se necessário */
+    }
+}
+
 }

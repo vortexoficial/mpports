@@ -2058,6 +2058,82 @@ Update1.0
 
 
 
+@media (max-width: 768px) {
+    /* Somente para a seção com a classe custom-services */
+    .custom-services .service-detail {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        padding: 15px !important;
+    }
+
+    .custom-services .service-img-box {
+        max-width: 80% !important;
+        padding-right: 0 !important;
+        margin-bottom: 20px;
+    }
+
+    .custom-services .service-content {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .custom-services .service-icon {
+        margin-bottom: 15px;
+    }
+
+    .custom-services .thm-btn {
+        margin-top: 15px;
+    }
+}
+/* Estilo inicial do botão - cor laranja com texto preto */
+.custom-services .thm-btn-service {
+    background-color: #ff5e14; /* Cor de fundo laranja */
+    color: black; /* Cor do texto preta */
+    border: 2px solid #ff5e14; /* Borda laranja */
+    padding: 10px 20px; /* Espaçamento do botão */
+    border-radius: 5px; /* Cantos arredondados */
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.3s ease; /* Transição suave para todas as propriedades */
+}
+
+/* Efeito ao passar o mouse - botão amplia, fundo preto e texto branco */
+.custom-services .thm-btn-service:hover {
+    background-color: black; /* Fundo preto */
+    color: white; /* Texto branco */
+    transform: scale(1.1); /* Amplia o botão em 10% */
+    border: 2px solid black; /* Borda preta */
+}
+/* Reordenação apenas no mobile */
+@media (max-width: 767px) {
+    .custom-services .service-detail {
+        display: flex;
+        flex-direction: column; /* Mudamos a direção para coluna */
+    }
+
+    /* Garantir que a imagem seja a primeira */
+    .custom-services .service-img-box {
+        order: 1; /* Imagem vem primeiro */
+        width: 100%; /* A imagem ocupa toda a largura no mobile */
+        margin-bottom: 20px; /* Espaçamento entre imagem e conteúdo */
+    }
+
+    /* O título vem depois da imagem */
+    .custom-services .service-content {
+        order: 2; /* Título e descrição ficam depois da imagem */
+    }
+
+    /* Descrição do serviço */
+    .custom-services .service-content p {
+        order: 3; /* Garantir que a descrição fique logo após o título */
+    }
+
+    /* O botão vem por último */
+    .custom-services .thm-btn-service {
+        order: 4; /* Botão vai por último */
+    }
+}
 
 
 

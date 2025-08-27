@@ -217,6 +217,7 @@ button::-moz-focus-inner {
     border-left: 27px solid #3F3F3F; }
 
 .mfp-iframe-holder {
+align-items: center;
   padding-top: 40px;
   padding-bottom: 40px; }
   .mfp-iframe-holder .mfp-content {
@@ -228,18 +229,23 @@ button::-moz-focus-inner {
 
 .mfp-iframe-scaler {
   width: 100%;
-  height: 0;
+  height: 100%;
+   display: flex;
   overflow: hidden;
-  padding-top: 56.25%; }
+  padding-top: 90%; 
+}
   .mfp-iframe-scaler iframe {
     position: absolute;
     display: block;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    left: 25px;
+    width: 350px; 
+     
+    height: 620px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+    border-radius: 25px;
     background: #000; }
+    
 
 /* Main image in popup */
 img.mfp-img {

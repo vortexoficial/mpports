@@ -138,6 +138,16 @@
       document.cookie = "googtrans=/pt/pt; path=/";
     }
   });
+
+  // Ocultar a barra do Google Translate
+  window.addEventListener('load', function() {
+    setTimeout(() => {
+      const banner = document.querySelector(".goog-te-banner-frame");
+      if (banner) {
+        banner.style.display = "none"; // Esconde a barra do Google Translate
+      }
+    }, 2000); // Aguarda 2 segundos para garantir que o banner tenha sido carregado
+  });
 </script>
 
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
@@ -1190,5 +1200,6 @@ impactos ambientais, cumprimento da legislação vigente e apoio a projetos soci
 </body>
 
 </html>
+
 
 

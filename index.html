@@ -62,7 +62,7 @@
                             <div class="left">
                                 <div class="location-box">
                                     <div class="select-box">
-                                   <select id="languageSelector" class="selectmenu wide" onchange="translateLanguage()">
+                                  <select id="languageSelector" class="selectmenu wide" onchange="translateLanguage()">
   <option value="pt" selected>Português</option>
   <option value="en">Inglês</option>
 </select>
@@ -71,32 +71,36 @@
 <div id="google_translate_element" style="display: none;"></div>
 
 <script type="text/javascript">
+  // Função de inicialização do Google Translate
   function googleTranslateElementInit() {
     new google.translate.TranslateElement({
-      pageLanguage: 'pt',
-      includedLanguages: 'pt,en',
+      pageLanguage: 'pt', // Define o idioma inicial da página
+      includedLanguages: 'pt,en', // Define os idiomas disponíveis
       layout: google.translate.TranslateElement.InlineLayout.SIMPLE
     }, 'google_translate_element');
   }
 
+  // Função para alterar o idioma ao selecionar no menu
   function translateLanguage() {
     const language = document.getElementById("languageSelector").value;
     const combo = document.querySelector(".goog-te-combo");
     if (combo) {
       combo.value = language;
-      combo.dispatchEvent(new Event("change", { bubbles: true }));
+      combo.dispatchEvent(new Event("change", { bubbles: true })); // Dispara evento de mudança no combo
     }
   }
 
-  // Garante que a tradução inicial siga o select
+  // Garante que o translateLanguage seja chamado após a página carregar e o Google Translate ser carregado
   window.addEventListener("load", () => {
     setTimeout(() => {
       translateLanguage();
-    }, 500); // dá tempo do Google carregar o combo
+    }, 500); // Dá tempo para o Google Translate carregar o combo
   });
 </script>
 
+<!-- Script do Google Translate -->
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 
                                     </div>
                                 </div>
@@ -1143,3 +1147,4 @@ impactos ambientais, cumprimento da legislação vigente e apoio a projetos soci
 </body>
 
 </html>
+

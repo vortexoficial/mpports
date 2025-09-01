@@ -5,19 +5,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MP PORT SOLUTIONS - Serviços de Porto</title>
-    <!-- favicons Icons -->
+
+    <!-- Carregar as bibliotecas i18next e i18nextXHRBackend via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/i18next@21.6.4/i18next.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/i18next-xhr-backend@3.2.0/i18nextXHRBackend.min.js"></script>
+
+    <!-- Favicons Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png" />
     <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
     <meta name="description" content="Const HTML Template For Construction" />
 
-    <!-- fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
-
-
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/animate.min.css" />
@@ -34,7 +35,7 @@
     <link rel="stylesheet" href="assets/css/vegas.min.css" />
     <link rel="stylesheet" href="assets/css/nice-select.css" />
 
-    <!-- template styles -->
+    <!-- Template styles -->
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
     <link rel="stylesheet" href="assets/css/scrollbar.css" />
@@ -42,18 +43,16 @@
 
 <body>
 
-    <!--Start Preloader-->
+    <!-- Start Preloader -->
     <div class="preloader">
         <div class="loader"></div>
     </div>
-    <!--End Preloader-->
+    <!-- End Preloader -->
 
     <div class="page-wrapper">
 
-       
-
-        <!--Start Main Header Three-->
-        <header class="main-header main-header-three  clearfix" style="background-color: black;">
+        <!-- Start Main Header Three -->
+        <header class="main-header main-header-three clearfix" style="background-color: black;">
             <div class="main-header-three__wrapper">
 
                 <div class="main-header-three__top clearfix">
@@ -62,29 +61,24 @@
                             <div class="left">
                                 <div class="location-box">
                                     <div class="select-box">
-                                <select id="languageSelector" class="selectmenu wide" onchange="translateLanguage()">
-    <option value="pt" selected>Português</option>
-    <option value="en">Inglês</option>
-</select>
-
-
-
+                                        <!-- Seleção de idiomas -->
+                                        <select id="languageSelector" class="selectmenu wide" onchange="translateLanguage()">
+                                            <option value="pt" selected>Português</option>
+                                            <option value="en">Inglês</option>
+                                        </select>
                                     </div>
                                 </div>
-
-                              
                             </div>
 
                             <div class="right">
                                 <div class="title">
-                                    <p>Siga a MP nas redes sociais</p>
+                                    <p id="follow-social">Siga a MP nas redes sociais</p>
                                 </div>
 
-                               <ul class="social-links">
-    <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-</ul>
-
+                                <ul class="social-links">
+                                    <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
+                                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -99,27 +93,23 @@
 
                             <div class="contact-info">
                                 <ul>
-                                    
-
-
                                     <li>
                                         <div class="icon-box">
                                             <span class="icon-phone-call"></span>
                                         </div>
                                         <div class="text-box">
-                                            <h3 style="color: #ff5e14;">Contatos:</h3>
-                                            <p class="number" style="color: aliceblue;">(13) <strong>98863-0529</strong> - (13)<strong> 97405-2389</strong></p>
+                                            <h3 id="contacts" style="color: #ff5e14;">Contatos:</h3>
+                                            <p id="contact-numbers" class="number" style="color: aliceblue;">(13) <strong>98863-0529</strong> - (13)<strong> 97405-2389</strong></p>
                                         </div>
-                                        
                                     </li>
-                                         <li>
-    <div class="icon-box">
-        <span class="fas fa-clock"></span> <!-- Ícone moderno de relógio -->
-    </div>
-    <div class="text-box">
-        <p class="esc" style="color: aliceblue;">Atendemos <b>24h</b>,<br><b>7 Dias</b> por semana</p>
-    </div>
-</li>
+                                    <li>
+                                        <div class="icon-box">
+                                            <span class="fas fa-clock"></span> <!-- Ícone moderno de relógio -->
+                                        </div>
+                                        <div class="text-box">
+                                            <p id="working-hours" class="esc" style="color: aliceblue;">Atendemos <b>24h</b>,<br><b>7 Dias</b> por semana</p>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -136,49 +126,31 @@
                                         <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
                                         <div class="stricky-one-logo">
                                             <div class="logo">
-                                                <a href="index.html"><img src="assets/images/resources/stricky-logo.png"
-                                                        alt=""></a>
+                                                <a href="index.html"><img src="assets/images/resources/stricky-logo.png" alt=""></a>
                                             </div>
                                         </div>
 
                                         <ul class="main-menu__list">
-                                            <li >
-                                                <a href="index.html">início</a>
-                                               
+                                            <li><a href="index.html" id="home">início</a></li>
+                                            <li><a href="#" id="about-us">Quem Somos</a></li>
+                                            <li>
+                                                <a id="services">Serviços</a>
+                                                <ul>
+                                                    <li><a href="#" id="amarra">Amarração e Desamarração de Navio</a></li>
+                                                    <li><a href="#" id="cerco">Cerco Preventivo de Carga</a></li>
+                                                    <li><a href="#" id="transporte">Transporte de Passageiros</a></li>
+                                                    <li><a href="#" id="resgate">Apoio em Resgate de Animal ao Mar</a></li>
+                                                    <li><a href="#" id="limpeza">Limpeza de Costado</a></li>
+                                                </ul>
                                             </li>
-                                            <li >
-                                                <a href="#">Quem Somos</a>
-                                                
-                                            </li>
-                                            <li >
-                                                <a >Serviços </a>
-                                               <ul>
-    <li><a href="#">Amarração e Desamarração de Navio</a></li>
-    <li><a href="#">Cerco Preventivo de Carga</a></li>
-    <li><a href="#">Transporte de Passageiros</a></li>
-    <li><a href="#">Apoio em Resgate de Animal ao Mar</a></li>
-    <li><a href="#">Limpeza de Costado</a></li>
-</ul>
-
-                                            </li>
-                                          
-                                            
-                                            <li><a href="contact.html">Contato</a></li>
+                                            <li><a href="contact.html" id="contact">Contato</a></li>
                                         </ul>
                                     </div>
                                 </nav>
                             </div>
 
-
                             <div class="main-header-one__bottom-right">
-                                
-                                   <span class="fas fa-anchor" style="color: aliceblue; font-size: 30px;"></span>
-                                   
-                                
-
-
-                              
-
+                                <span class="fas fa-anchor" style="color: aliceblue; font-size: 30px;"></span>
                             </div>
 
                         </div>
@@ -187,41 +159,82 @@
 
             </div>
         </header>
-        <!--End Main Header Three-->
+        <!-- End Main Header Three -->
 
-        
-<script type="text/javascript">
-    // Função de inicialização do Google Translate
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-            pageLanguage: 'pt', // Define o idioma inicial da página
-            includedLanguages: 'pt,en', // Idiomas disponíveis
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: false // Não exibe a caixa de seleção do Google
-        }, 'google_translate_element');
-    }
+        <script>
+            // Inicializar o i18next
+            i18next.init({
+                lng: 'pt', // idioma inicial
+                resources: {
+                    pt: {
+                        translation: {
+                            "follow-social": "Siga a MP nas redes sociais",
+                            "contacts": "Contatos:",
+                            "contact-numbers": "(13) 98863-0529 - (13) 97405-2389",
+                            "working-hours": "Atendemos 24h, 7 Dias por semana",
+                            "home": "início",
+                            "about-us": "Quem Somos",
+                            "services": "Serviços",
+                            "amarra": "Amarração e Desamarração de Navio",
+                            "cerco": "Cerco Preventivo de Carga",
+                            "transporte": "Transporte de Passageiros",
+                            "resgate": "Apoio em Resgate de Animal ao Mar",
+                            "limpeza": "Limpeza de Costado",
+                            "contact": "Contato"
+                        }
+                    },
+                    en: {
+                        translation: {
+                            "follow-social": "Follow MP on social media",
+                            "contacts": "Contacts:",
+                            "contact-numbers": "(13) 98863-0529 - (13) 97405-2389",
+                            "working-hours": "We operate 24h, 7 Days a week",
+                            "home": "Home",
+                            "about-us": "About Us",
+                            "services": "Services",
+                            "amarra": "Ship Tying & Untying",
+                            "cerco": "Preventive Cargo Locking",
+                            "transporte": "Passenger Transport",
+                            "resgate": "Marine Animal Rescue Support",
+                            "limpeza": "Hull Cleaning",
+                            "contact": "Contact"
+                        }
+                    }
+                }
+            });
 
-    // Função para alterar o idioma baseado na seleção
-    function translateLanguage() {
-        const language = document.getElementById("languageSelector").value; // Obtém o valor selecionado
-        const combo = document.querySelector(".goog-te-combo"); // Seleciona o combo do Google Translate
-        if (combo) {
-            combo.value = language; // Altera o valor para o idioma escolhido
-            combo.dispatchEvent(new Event("change", { bubbles: true })); // Dispara evento para mudar o idioma
-        }
-    }
+            // Função para atualizar o conteúdo da página com base no idioma selecionado
+            function updateContent() {
+                document.getElementById('follow-social').innerText = i18next.t('follow-social');
+                document.getElementById('contacts').innerText = i18next.t('contacts');
+                document.getElementById('contact-numbers').innerText = i18next.t('contact-numbers');
+                document.getElementById('working-hours').innerText = i18next.t('working-hours');
+                document.getElementById('home').innerText = i18next.t('home');
+                document.getElementById('about-us').innerText = i18next.t('about-us');
+                document.getElementById('services').innerText = i18next.t('services');
+                document.getElementById('amarra').innerText = i18next.t('amarra');
+                document.getElementById('cerco').innerText = i18next.t('cerco');
+                document.getElementById('transporte').innerText = i18next.t('transporte');
+                document.getElementById('resgate').innerText = i18next.t('resgate');
+                document.getElementById('limpeza').innerText = i18next.t('limpeza');
+                document.getElementById('contact').innerText = i18next.t('contact');
+            }
 
-    // Adiciona um evento para garantir que a tradução seja aplicada ao carregar a página
-    window.addEventListener("load", () => {
-        // Espera um tempo para garantir que a tradução tenha sido carregada
-        setTimeout(() => {
-            translateLanguage(); // Chama a função de tradução após a página ser carregada
-        }, 1000); // Atraso de 1 segundo
-    });
-</script>
+            // Função para mudar o idioma
+            function translateLanguage() {
+                const language = document.getElementById("languageSelector").value; // Obtém o idioma selecionado
+                i18next.changeLanguage(language, function() {
+                    updateContent(); // Atualiza o conteúdo quando o idioma é alterado
+                });
+            }
 
-<!-- Script do Google Translate -->
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+            // Atualiza o conteúdo ao carregar a página
+            window.addEventListener("load", () => {
+                updateContent();
+            });
+        </script>
+    </div>
+
 
 
         <div class="stricky-header stricked-menu main-menu">

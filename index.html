@@ -62,7 +62,7 @@
                             <div class="left">
                                 <div class="location-box">
                                     <div class="select-box">
-                                  <select id="languageSelector" class="selectmenu wide" onchange="translateLanguage()">
+                                 <select id="languageSelector" class="selectmenu wide" onchange="translateLanguage()">
   <option value="pt" selected>Português</option>
   <option value="en">Inglês</option>
 </select>
@@ -84,22 +84,34 @@
   function translateLanguage() {
     const language = document.getElementById("languageSelector").value;
     const combo = document.querySelector(".goog-te-combo");
+
     if (combo) {
+      // Tenta alterar o valor do idioma no combo
       combo.value = language;
-      combo.dispatchEvent(new Event("change", { bubbles: true })); // Dispara evento de mudança no combo
+      
+      // Tenta disparar o evento de mudança
+      combo.dispatchEvent(new Event("change", { bubbles: true }));
+    } else {
+      console.log('Erro: combo do Google Translate não encontrado');
     }
   }
 
   // Garante que o translateLanguage seja chamado após a página carregar e o Google Translate ser carregado
   window.addEventListener("load", () => {
-    setTimeout(() => {
-      translateLanguage();
-    }, 500); // Dá tempo para o Google Translate carregar o combo
+    // Verifica se o Google Translate foi carregado
+    if (typeof google !== 'undefined' && google.translate) {
+      setTimeout(() => {
+        translateLanguage();
+      }, 500); // Dá tempo para o Google Translate carregar o combo
+    } else {
+      console.log('Erro: O Google Translate não foi carregado corretamente');
+    }
   });
 </script>
 
 <!-- Script do Google Translate -->
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 
 
                                     </div>
@@ -1147,4 +1159,5 @@ impactos ambientais, cumprimento da legislação vigente e apoio a projetos soci
 </body>
 
 </html>
+
 

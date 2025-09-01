@@ -62,15 +62,39 @@
                             <div class="left">
                                 <div class="location-box">
                                     <div class="select-box">
-                                   <select id="languageSelector" class="selectmenu wide" onchange="translateLanguage()">
+                                   
+                                        <!-- Botão de idioma -->
+<select id="languageSelector" class="selectmenu wide" onchange="translateLanguage()">
   <option value="pt" selected>Português</option>
   <option value="en">Inglês</option>
 </select>
 
-<!-- Google Translate Element (oculto) -->
-<div id="google_translate_element" style="display: none;"></div>
+<!-- Google Translate Element (escondido visualmente, mas funcional) -->
+<div id="google_translate_element" style="position:absolute; left:-9999px;"></div>
 
-<script type="text/javascript">
+<script>
+  // ---- PERSISTÊNCIA ----
+  const STORAGE_KEY = "preferredLang";      // 'pt' | 'en'
+  const DEFAULT_LANG = "pt";
+
+  function getSavedLang() {
+    try { return localStorage.getItem(STORAGE_KEY) || DEFAULT_LANG; }
+    catch { return DEFAULT_LANG; }
+  }
+  function saveLang(lang) {
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch {}
+  }
+
+  // Mantém o cookie do Google para o idioma (funciona entre páginas)
+  function setGoogleTranslateCookie(from, to) {
+    // formato exigido: /<from>/<to>
+    const value = `/${from}/${to}`;
+    // cookie amplo no domínio e caminho raiz
+    document.cookie = `googtrans=${value}; expires=${new Date(Date.now()+31536000000).toUTCString()}; path=/`;
+    document.cookie = `googtrans=${value}; domain=${location.hostname}; expires=${new Date(Date.now()+31536000000).toUTCString()}; path=/`;
+  }
+
+  // ---- GOOGLE TRANSLATE ----
   function googleTranslateElementInit() {
     new google.translate.TranslateElement({
       pageLanguage: 'pt',
@@ -79,24 +103,43 @@
     }, 'google_translate_element');
   }
 
-  function translateLanguage() {
-    const language = document.getElementById("languageSelector").value;
+  function applyLanguage(lang) {
     const combo = document.querySelector(".goog-te-combo");
     if (combo) {
-      combo.value = language;
-      combo.dispatchEvent(new Event("change", { bubbles: true }));
+      combo.value = lang;
+      combo.dispatchEvent(new Event("change"));
+      setGoogleTranslateCookie('pt', lang); // força persistência entre páginas
     }
   }
 
-  // Garante que a tradução inicial siga o select
-  window.addEventListener("load", () => {
-    setTimeout(() => {
-      translateLanguage();
-    }, 500); // dá tempo do Google carregar o combo
-  });
+  function translateLanguage() {
+    const lang = document.getElementById("languageSelector").value;
+    saveLang(lang);
+    applyLanguage(lang);
+  }
+
+  // ---- INICIALIZAÇÃO ----
+  // Define o select para o que estiver salvo
+  (function initSelectFromStorage() {
+    const select = document.getElementById("languageSelector");
+    const saved = getSavedLang();
+    if (select) select.value = saved;
+  })();
+
+  // Aguarda o combo do Google existir e aplica o idioma salvo
+  const comboWaiter = setInterval(() => {
+    const combo = document.querySelector(".goog-te-combo");
+    if (combo) {
+      clearInterval(comboWaiter);
+      const saved = getSavedLang();
+      applyLanguage(saved);
+    }
+  }, 300);
 </script>
 
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
 
                                     </div>
                                 </div>

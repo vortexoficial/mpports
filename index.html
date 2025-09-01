@@ -64,6 +64,7 @@
                                     <div class="select-box">
                                    
                                         <!-- Botão de idioma -->
+<!-- Botão de idioma -->
 <select id="languageSelector" class="selectmenu wide" onchange="translateLanguage()">
   <option value="pt" selected>Português</option>
   <option value="en">Inglês</option>
@@ -81,17 +82,9 @@
     try { return localStorage.getItem(STORAGE_KEY) || DEFAULT_LANG; }
     catch { return DEFAULT_LANG; }
   }
+
   function saveLang(lang) {
     try { localStorage.setItem(STORAGE_KEY, lang); } catch {}
-  }
-
-  // Mantém o cookie do Google para o idioma (funciona entre páginas)
-  function setGoogleTranslateCookie(from, to) {
-    // formato exigido: /<from>/<to>
-    const value = `/${from}/${to}`;
-    // cookie amplo no domínio e caminho raiz
-    document.cookie = `googtrans=${value}; expires=${new Date(Date.now()+31536000000).toUTCString()}; path=/`;
-    document.cookie = `googtrans=${value}; domain=${location.hostname}; expires=${new Date(Date.now()+31536000000).toUTCString()}; path=/`;
   }
 
   // ---- GOOGLE TRANSLATE ----
@@ -108,7 +101,6 @@
     if (combo) {
       combo.value = lang;
       combo.dispatchEvent(new Event("change"));
-      setGoogleTranslateCookie('pt', lang); // força persistência entre páginas
     }
   }
 
@@ -135,9 +127,21 @@
       applyLanguage(saved);
     }
   }, 300);
+
+  // Garante que o idioma de página seja persistente em cookies entre recarregamentos
+  window.addEventListener("load", () => {
+    const savedLang = getSavedLang();
+    if (savedLang === "en") {
+      // Configura o idioma de página para inglês se necessário
+      document.cookie = "googtrans=/pt/en; path=/";
+    } else {
+      document.cookie = "googtrans=/pt/pt; path=/";
+    }
+  });
 </script>
 
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 
 
 
@@ -1186,3 +1190,4 @@ impactos ambientais, cumprimento da legislação vigente e apoio a projetos soci
 </body>
 
 </html>
+

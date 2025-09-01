@@ -6,7 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MP PORT SOLUTIONS - Serviços de Porto</title>
 
-
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'pt', // Idioma padrão da página
+            includedLanguages: 'pt,en', // Idiomas disponíveis para tradução
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false // Evita a exibição automática do menu do Google Translate
+        }, 'google_translate_element');
+    }
+</script>
 <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <!-- Favicons Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png" />
@@ -37,20 +46,22 @@
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
     <link rel="stylesheet" href="assets/css/scrollbar.css" />
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-            pageLanguage: 'pt', // Idioma padrão da página
+    <script type="text/javascript">
+    function translateLanguage() {
+        var language = document.getElementById("languageSelector").value;
+        
+        // Inicialize o Google Translate se não estiver inicializado
+        var googleTranslateElement = new google.translate.TranslateElement({
+            pageLanguage: 'pt',  // Idioma padrão da página
             includedLanguages: 'pt,en', // Idiomas disponíveis
             layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: false // Impede que o Google Translate exiba automaticamente o menu de tradução
+            autoDisplay: false // Impede a exibição do menu automático do Google Translate
         }, 'google_translate_element');
+        
+        // Traduza a página para o idioma selecionado
+        googleTranslateElement.translatePage(language, 'auto');  
     }
 </script>
-<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
 
 </head>
 
@@ -76,11 +87,10 @@
                                     <div class="select-box">
                                        <!-- Seletor de idiomas -->
 <div id="google_translate_element" style="display: none;"></div>
-    <select id="languageSelector" class="selectmenu wide" onchange="translateLanguage()">
-        <option value="pt" selected>Português</option>
-        <option value="en">Inglês</option>
-    </select>
-
+<select id="languageSelector" class="selectmenu wide" onchange="translateLanguage()">
+    <option value="pt" selected>Português</option>
+    <option value="en">Inglês</option>
+</select>
                                     </div>
                                 </div>
                             </div>
@@ -1102,27 +1112,9 @@ impactos ambientais, cumprimento da legislação vigente e apoio a projetos soci
     <script src="assets/js/jquery.nice-select.min.js"></script>
 
     <!-- template js -->
-    <script type="text/javascript">
-        function translateLanguage() {
-            var language = document.getElementById("languageSelector").value;
-
-            // Cria a referência ao objeto TranslateElement
-            var googleTranslateElement = new google.translate.TranslateElement({
-                pageLanguage: 'pt',  // Idioma padrão da página
-                includedLanguages: 'pt,en', // Idiomas disponíveis
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false // Não exibe automaticamente o menu de tradução
-            }, 'google_translate_element');
-
-            // Muda o idioma selecionado
-            googleTranslateElement.translate(language);
-        }
-    </script>
-
+    <script src="assets/js/script.js"></script>
+    
 
 </body>
 
 </html>
-
-
-

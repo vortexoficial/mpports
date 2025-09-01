@@ -46,6 +46,23 @@
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
     <link rel="stylesheet" href="assets/css/scrollbar.css" />
+    <script type="text/javascript">
+    function translateLanguage() {
+        var language = document.getElementById("languageSelector").value;
+        
+        // Inicialize o Google Translate se não estiver inicializado
+        var googleTranslateElement = new google.translate.TranslateElement({
+            pageLanguage: 'pt',  // Idioma padrão da página
+            includedLanguages: 'pt,en', // Idiomas disponíveis
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false // Impede a exibição do menu automático do Google Translate
+        }, 'google_translate_element');
+        
+        // Traduza a página para o idioma selecionado
+        googleTranslateElement.translatePage(language, 'auto');  
+    }
+</script>
+
 </head>
 
 <body>
@@ -1096,19 +1113,7 @@ impactos ambientais, cumprimento da legislação vigente e apoio a projetos soci
 
     <!-- template js -->
     <script src="assets/js/script.js"></script>
-    <script type="text/javascript">
-    function translateLanguage() {
-        var language = document.getElementById("languageSelector").value;
-        var googleTranslateElement = new google.translate.TranslateElement({
-            pageLanguage: 'pt',  // Idioma padrão da página
-            includedLanguages: 'pt,en', // Idiomas disponíveis
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: false
-        }, 'google_translate_element');
-        googleTranslateElement.hideControls();  // Oculta o menu do Google Translate
-        googleTranslateElement.translatePage(language, 'auto');  // Traduz a página
-    }
-</script>
+    
 
 </body>
 

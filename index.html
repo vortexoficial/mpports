@@ -10,147 +10,112 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png" />
     <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
-    <meta name="description" content="Const HTML Template For Construction" />
+    <meta name="description" content="MP Port Solutions" />
 
-    <!-- fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
-
-
-
+    <!-- Fonts and CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/animate.min.css" />
-    <link rel="stylesheet" href="assets/css/custom-animate.css" />
-    <link rel="stylesheet" href="assets/vendors/fontawesome/css/all.min.css" />
-    <link rel="stylesheet" href="assets/css/jarallax.css" />
-    <link rel="stylesheet" href="assets/css/jquery.magnific-popup.css" />
-    <link rel="stylesheet" href="assets/css/odometer.min.css" />
-    <link rel="stylesheet" href="assets/css/swiper.min.css" />
-    <link rel="stylesheet" href="assets/vendors/icomoon-icons/style.css">
-    <link rel="stylesheet" href="assets/vendors/reey-font/stylesheet.css" />
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
-    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css" />
-    <link rel="stylesheet" href="assets/css/vegas.min.css" />
-    <link rel="stylesheet" href="assets/css/nice-select.css" />
-
-    <!-- template styles -->
     <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/responsive.css" />
-    <link rel="stylesheet" href="assets/css/scrollbar.css" />
 </head>
 
 <body>
 
-    <!--Start Preloader-->
-    <div class="preloader">
-        <div class="loader"></div>
-    </div>
-    <!--End Preloader-->
+    <!-- Header with language selector -->
+    <header class="main-header">
+        <div class="language-selector">
+            <select id="languageSelector" class="selectmenu wide" onchange="translateLanguage()">
+                <option value="pt" selected>Português</option>
+                <option value="en">Inglês</option>
+            </select>
+            <!-- Google Translate Element (hidden visually but functional) -->
+            <div id="google_translate_element" style="position:absolute; left:-9999px;"></div>
+        </div>
+    </header>
 
-    <div class="page-wrapper">
+    <!-- Page content -->
+    <section class="intro">
+        <h1>MP Port Solutions</h1>
+        <p>Port solutions with excellence, safety, and efficiency.</p>
+    </section>
 
-       
+    <!-- Scripts for Google Translate and language persistence -->
+    <script>
+        // ---- PERSISTÊNCIA ----
+        const STORAGE_KEY = "preferredLang";      // 'pt' | 'en'
+        const DEFAULT_LANG = "pt";
 
-        <!--Start Main Header Three-->
-        <header class="main-header main-header-three  clearfix" style="background-color: black;">
-            <div class="main-header-three__wrapper">
+        function getSavedLang() {
+            try { return localStorage.getItem(STORAGE_KEY) || DEFAULT_LANG; }
+            catch { return DEFAULT_LANG; }
+        }
 
-                <div class="main-header-three__top clearfix">
-                    <div class="container">
-                        <div class="main-header-three__top-inner">
-                            <div class="left">
-                                <div class="location-box">
-                                    <div class="select-box">
-                                   
-                                        <!-- Botão de idioma -->
-<!-- Botão de idioma -->
-<select id="languageSelector" class="selectmenu wide" onchange="translateLanguage()">
-  <option value="pt" selected>Português</option>
-  <option value="en">Inglês</option>
-</select>
+        function saveLang(lang) {
+            try { localStorage.setItem(STORAGE_KEY, lang); } catch {}
+        }
 
-<!-- Google Translate Element (escondido visualmente, mas funcional) -->
-<div id="google_translate_element" style="position:absolute; left:-9999px;"></div>
+        // ---- GOOGLE TRANSLATE ----
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'pt',
+                includedLanguages: 'pt,en',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
 
-<script>
-  // ---- PERSISTÊNCIA ----
-  const STORAGE_KEY = "preferredLang";      // 'pt' | 'en'
-  const DEFAULT_LANG = "pt";
+        function applyLanguage(lang) {
+            const combo = document.querySelector(".goog-te-combo");
+            if (combo) {
+                combo.value = lang;
+                combo.dispatchEvent(new Event("change"));
+            }
+        }
 
-  function getSavedLang() {
-    try { return localStorage.getItem(STORAGE_KEY) || DEFAULT_LANG; }
-    catch { return DEFAULT_LANG; }
-  }
+        function translateLanguage() {
+            const lang = document.getElementById("languageSelector").value;
+            saveLang(lang);
+            applyLanguage(lang);
+        }
 
-  function saveLang(lang) {
-    try { localStorage.setItem(STORAGE_KEY, lang); } catch {}
-  }
+        // ---- INITIALIZATION ----
+        // Set select to saved language
+        (function initSelectFromStorage() {
+            const select = document.getElementById("languageSelector");
+            const saved = getSavedLang();
+            if (select) select.value = saved;
+        })();
 
-  // ---- GOOGLE TRANSLATE ----
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'pt',
-      includedLanguages: 'pt,en',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-    }, 'google_translate_element');
-  }
+        // Wait for Google Translate combo and apply saved language
+        const comboWaiter = setInterval(() => {
+            const combo = document.querySelector(".goog-te-combo");
+            if (combo) {
+                clearInterval(comboWaiter);
+                const saved = getSavedLang();
+                applyLanguage(saved);
+            }
+        }, 300);
 
-  function applyLanguage(lang) {
-    const combo = document.querySelector(".goog-te-combo");
-    if (combo) {
-      combo.value = lang;
-      combo.dispatchEvent(new Event("change"));
-    }
-  }
+        // Ensure the page language persists across reloads
+        window.addEventListener("load", () => {
+            const savedLang = getSavedLang();
+            if (savedLang === "en") {
+                document.cookie = "googtrans=/pt/en; path=/";
+            } else {
+                document.cookie = "googtrans=/pt/pt; path=/";
+            }
+        });
 
-  function translateLanguage() {
-    const lang = document.getElementById("languageSelector").value;
-    saveLang(lang);
-    applyLanguage(lang);
-  }
+        // Hide Google Translate banner
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                const banner = document.querySelector(".goog-te-banner-frame");
+                if (banner) {
+                    banner.style.display = "none"; // Hide the Google Translate banner
+                }
+            }, 2000); // Wait 2 seconds to ensure the banner is loaded
+        });
+    </script>
 
-  // ---- INICIALIZAÇÃO ----
-  // Define o select para o que estiver salvo
-  (function initSelectFromStorage() {
-    const select = document.getElementById("languageSelector");
-    const saved = getSavedLang();
-    if (select) select.value = saved;
-  })();
-
-  // Aguarda o combo do Google existir e aplica o idioma salvo
-  const comboWaiter = setInterval(() => {
-    const combo = document.querySelector(".goog-te-combo");
-    if (combo) {
-      clearInterval(comboWaiter);
-      const saved = getSavedLang();
-      applyLanguage(saved);
-    }
-  }, 300);
-
-  // Garante que o idioma de página seja persistente em cookies entre recarregamentos
-  window.addEventListener("load", () => {
-    const savedLang = getSavedLang();
-    if (savedLang === "en") {
-      // Configura o idioma de página para inglês se necessário
-      document.cookie = "googtrans=/pt/en; path=/";
-    } else {
-      document.cookie = "googtrans=/pt/pt; path=/";
-    }
-  });
-
-  // Ocultar a barra do Google Translate
-  window.addEventListener('load', function() {
-    setTimeout(() => {
-      const banner = document.querySelector(".goog-te-banner-frame");
-      if (banner) {
-        banner.style.display = "none"; // Esconde a barra do Google Translate
-      }
-    }, 2000); // Aguarda 2 segundos para garantir que o banner tenha sido carregado
-  });
-</script>
-
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 
 
@@ -1200,6 +1165,7 @@ impactos ambientais, cumprimento da legislação vigente e apoio a projetos soci
 </body>
 
 </html>
+
 
 
 

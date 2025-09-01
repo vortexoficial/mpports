@@ -62,10 +62,10 @@
                             <div class="left">
                                 <div class="location-box">
                                     <div class="select-box">
-                                   <select id="languageSelector" class="selectmenu wide" onchange="translateLanguage()">
-                  <option value="pt" selected>Português</option>
-                  <option value="en">Inglês</option>
-                </select>
+                                <select id="languageSelector" class="selectmenu wide" onchange="translateLanguage()">
+    <option value="pt" selected>Português</option>
+    <option value="en">Inglês</option>
+</select>
 
 
 
@@ -189,41 +189,35 @@
         </header>
         <!--End Main Header Three-->
 
-
-<!-- Google Translate Element (oculto) -->
-<div id="google_translate_element" style="display: none;"></div>
-
+        
 <script type="text/javascript">
-  // Função de inicialização do Google Translate
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'pt', // Define o idioma inicial da página
-      includedLanguages: 'pt,en', // Define os idiomas disponíveis
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-      autoDisplay: false // Evita que o Google Translate seja exibido automaticamente
-    }, 'google_translate_element');
-  }
-
-  // Função para alterar o idioma ao selecionar no menu
-  function translateLanguage() {
-    const language = document.getElementById("languageSelector").value;
-    const combo = document.querySelector(".goog-te-combo");
-
-    // Verifica se o combo existe antes de tentar alterar
-    if (combo) {
-      combo.value = language;
-      // Dispara o evento de alteração de idioma
-      combo.dispatchEvent(new Event("change", { bubbles: true }));
+    // Função de inicialização do Google Translate
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'pt', // Define o idioma inicial da página
+            includedLanguages: 'pt,en', // Idiomas disponíveis
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false // Não exibe a caixa de seleção do Google
+        }, 'google_translate_element');
     }
-  }
 
-  // Garante que o translateLanguage seja chamado após a página carregar e o Google Translate ser carregado
-  window.addEventListener("load", function() {
-    // Configura um tempo de atraso maior para garantir que o Google Translate tenha tempo para carregar
-    setTimeout(function() {
-      translateLanguage();
-    }, 2000); // 2 segundos de atraso para garantir o carregamento
-  });
+    // Função para alterar o idioma baseado na seleção
+    function translateLanguage() {
+        const language = document.getElementById("languageSelector").value; // Obtém o valor selecionado
+        const combo = document.querySelector(".goog-te-combo"); // Seleciona o combo do Google Translate
+        if (combo) {
+            combo.value = language; // Altera o valor para o idioma escolhido
+            combo.dispatchEvent(new Event("change", { bubbles: true })); // Dispara evento para mudar o idioma
+        }
+    }
+
+    // Adiciona um evento para garantir que a tradução seja aplicada ao carregar a página
+    window.addEventListener("load", () => {
+        // Espera um tempo para garantir que a tradução tenha sido carregada
+        setTimeout(() => {
+            translateLanguage(); // Chama a função de tradução após a página ser carregada
+        }, 1000); // Atraso de 1 segundo
+    });
 </script>
 
 <!-- Script do Google Translate -->

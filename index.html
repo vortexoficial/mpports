@@ -6,10 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MP PORT SOLUTIONS - Serviços de Porto</title>
 
-    <!-- Carregar as bibliotecas i18next e i18nextXHRBackend via CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/i18next@21.6.4/i18next.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/i18next-xhr-backend@3.2.0/i18nextXHRBackend.min.js"></script>
-
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'pt', // Idioma padrão da página
+            includedLanguages: 'pt,en', // Idiomas disponíveis para tradução
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false // Evita a exibição automática do menu do Google Translate
+        }, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <!-- Favicons Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png" />
@@ -61,11 +68,12 @@
                             <div class="left">
                                 <div class="location-box">
                                     <div class="select-box">
-                                        <!-- Seleção de idiomas -->
-                                        <select id="languageSelector" class="selectmenu wide" onchange="translateLanguage()">
-                                            <option value="pt" selected>Português</option>
-                                            <option value="en">Inglês</option>
-                                        </select>
+                                       <!-- Seletor de idiomas -->
+<div id="google_translate_element" style="display: none;"></div>
+<select id="languageSelector" class="selectmenu wide" onchange="translateLanguage()">
+    <option value="pt" selected>Português</option>
+    <option value="en">Inglês</option>
+</select>
                                     </div>
                                 </div>
                             </div>
@@ -161,78 +169,7 @@
         </header>
         <!-- End Main Header Three -->
 
-        <script>
-            // Inicializar o i18next
-            i18next.init({
-                lng: 'pt', // idioma inicial
-                resources: {
-                    pt: {
-                        translation: {
-                            "follow-social": "Siga a MP nas redes sociais",
-                            "contacts": "Contatos:",
-                            "contact-numbers": "(13) 98863-0529 - (13) 97405-2389",
-                            "working-hours": "Atendemos 24h, 7 Dias por semana",
-                            "home": "início",
-                            "about-us": "Quem Somos",
-                            "services": "Serviços",
-                            "amarra": "Amarração e Desamarração de Navio",
-                            "cerco": "Cerco Preventivo de Carga",
-                            "transporte": "Transporte de Passageiros",
-                            "resgate": "Apoio em Resgate de Animal ao Mar",
-                            "limpeza": "Limpeza de Costado",
-                            "contact": "Contato"
-                        }
-                    },
-                    en: {
-                        translation: {
-                            "follow-social": "Follow MP on social media",
-                            "contacts": "Contacts:",
-                            "contact-numbers": "(13) 98863-0529 - (13) 97405-2389",
-                            "working-hours": "We operate 24h, 7 Days a week",
-                            "home": "Home",
-                            "about-us": "About Us",
-                            "services": "Services",
-                            "amarra": "Ship Tying & Untying",
-                            "cerco": "Preventive Cargo Locking",
-                            "transporte": "Passenger Transport",
-                            "resgate": "Marine Animal Rescue Support",
-                            "limpeza": "Hull Cleaning",
-                            "contact": "Contact"
-                        }
-                    }
-                }
-            });
-
-            // Função para atualizar o conteúdo da página com base no idioma selecionado
-            function updateContent() {
-                document.getElementById('follow-social').innerText = i18next.t('follow-social');
-                document.getElementById('contacts').innerText = i18next.t('contacts');
-                document.getElementById('contact-numbers').innerText = i18next.t('contact-numbers');
-                document.getElementById('working-hours').innerText = i18next.t('working-hours');
-                document.getElementById('home').innerText = i18next.t('home');
-                document.getElementById('about-us').innerText = i18next.t('about-us');
-                document.getElementById('services').innerText = i18next.t('services');
-                document.getElementById('amarra').innerText = i18next.t('amarra');
-                document.getElementById('cerco').innerText = i18next.t('cerco');
-                document.getElementById('transporte').innerText = i18next.t('transporte');
-                document.getElementById('resgate').innerText = i18next.t('resgate');
-                document.getElementById('limpeza').innerText = i18next.t('limpeza');
-                document.getElementById('contact').innerText = i18next.t('contact');
-            }
-
-            // Função para mudar o idioma
-            function translateLanguage() {
-                const language = document.getElementById("languageSelector").value; // Obtém o idioma selecionado
-                i18next.changeLanguage(language, function() {
-                    updateContent(); // Atualiza o conteúdo quando o idioma é alterado
-                });
-            }
-
-            // Atualiza o conteúdo ao carregar a página
-            window.addEventListener("load", () => {
-                updateContent();
-            });
-        </script>
+        
     </div>
 
 
@@ -275,6 +212,8 @@ segurança, qualidade e responsabilidade socioambiental.</p>
              
         </section>
         <!--End Slider One Sec-->
+
+        
 
      <section class="services-three">
     <div class="shape1"><img src="assets/images/shapes/services-v3-shape1.png" alt="#"></div>
@@ -1157,6 +1096,19 @@ impactos ambientais, cumprimento da legislação vigente e apoio a projetos soci
 
     <!-- template js -->
     <script src="assets/js/script.js"></script>
+    <script type="text/javascript">
+    function translateLanguage() {
+        var language = document.getElementById("languageSelector").value;
+        var googleTranslateElement = new google.translate.TranslateElement({
+            pageLanguage: 'pt',  // Idioma padrão da página
+            includedLanguages: 'pt,en', // Idiomas disponíveis
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+        }, 'google_translate_element');
+        googleTranslateElement.hideControls();  // Oculta o menu do Google Translate
+        googleTranslateElement.translatePage(language, 'auto');  // Traduz a página
+    }
+</script>
 
 </body>
 

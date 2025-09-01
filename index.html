@@ -62,12 +62,12 @@
                             <div class="left">
                                 <div class="location-box">
                                     <div class="select-box">
-                                 <select id="languageSelector" class="selectmenu wide" onchange="translateLanguage()">
+                                <select id="languageSelector" class="selectmenu wide" onchange="translateLanguage()">
   <option value="pt" selected>Português</option>
   <option value="en">Inglês</option>
 </select>
 
-<!-- Google Translate Element (oculto) -->
+<!-- Elemento oculto do Google Translate -->
 <div id="google_translate_element" style="display: none;"></div>
 
 <script type="text/javascript">
@@ -76,7 +76,8 @@
     new google.translate.TranslateElement({
       pageLanguage: 'pt', // Define o idioma inicial da página
       includedLanguages: 'pt,en', // Define os idiomas disponíveis
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false // Impede a exibição da barra de tradução do Google na página
     }, 'google_translate_element');
   }
 
@@ -86,11 +87,8 @@
     const combo = document.querySelector(".goog-te-combo");
 
     if (combo) {
-      // Tenta alterar o valor do idioma no combo
-      combo.value = language;
-      
-      // Tenta disparar o evento de mudança
-      combo.dispatchEvent(new Event("change", { bubbles: true }));
+      combo.value = language; // Altera o valor do idioma no combo
+      combo.dispatchEvent(new Event("change", { bubbles: true })); // Dispara evento de mudança no combo
     } else {
       console.log('Erro: combo do Google Translate não encontrado');
     }
@@ -98,10 +96,10 @@
 
   // Garante que o translateLanguage seja chamado após a página carregar e o Google Translate ser carregado
   window.addEventListener("load", () => {
-    // Verifica se o Google Translate foi carregado
+    // Verifica se o Google Translate foi carregado corretamente
     if (typeof google !== 'undefined' && google.translate) {
       setTimeout(() => {
-        translateLanguage();
+        translateLanguage(); // Inicializa a tradução assim que o script do Google Translate estiver pronto
       }, 500); // Dá tempo para o Google Translate carregar o combo
     } else {
       console.log('Erro: O Google Translate não foi carregado corretamente');
@@ -1159,5 +1157,6 @@ impactos ambientais, cumprimento da legislação vigente e apoio a projetos soci
 </body>
 
 </html>
+
 
 

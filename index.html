@@ -37,18 +37,21 @@
     <!-- template styles -->
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
-    <link rel="stylesheet" href="assets/css/scrollbar.css" />
 <script type="text/javascript">
     function translatePage() {
         var language = document.getElementById("languageSelector").value;
-        var url = window.location.href;
-        if (language == 'en') {
-            window.location.href = 'https://translate.google.com/translate?hl=en&sl=pt&u=' + encodeURIComponent(url);
-        } else if (language == 'pt') {
-            window.location.href = url;
+        var currentUrl = window.location.href;
+
+        if (language === 'en') {
+            // Redireciona para a versão traduzida em inglês
+            window.location.href = 'https://translate.google.com/translate?hl=en&sl=pt&u=' + encodeURIComponent(currentUrl);
+        } else if (language === 'pt') {
+            // Redireciona para a versão original em português
+            window.location.href = currentUrl.split('?')[0];
         }
     }
 </script>
+
 
 </head>
 
@@ -1131,4 +1134,5 @@ impactos ambientais, cumprimento da legislação vigente e apoio a projetos soci
 </body>
 
 </html>
+
 

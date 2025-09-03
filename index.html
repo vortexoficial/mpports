@@ -43,14 +43,15 @@
         var currentUrl = window.location.href;
 
         if (language === 'en') {
-            // Redireciona para a versão traduzida em inglês
+            // Redireciona para a versão traduzida em inglês do Google Translate
             window.location.href = 'https://translate.google.com/translate?hl=en&sl=pt&u=' + encodeURIComponent(currentUrl);
         } else if (language === 'pt') {
             // Redireciona para a versão original em português
-            window.location.href = currentUrl.split('?')[0];
+            window.location.href = currentUrl.split('?')[0]; // Limpa o parâmetro de idioma
         }
     }
 </script>
+
 
 
 </head>
@@ -1134,5 +1135,6 @@ impactos ambientais, cumprimento da legislação vigente e apoio a projetos soci
 </body>
 
 </html>
+
 
 

@@ -38,6 +38,18 @@
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
     <link rel="stylesheet" href="assets/css/scrollbar.css" />
+<script type="text/javascript">
+    function translatePage() {
+        var language = document.getElementById("languageSelector").value;
+        var url = window.location.href;
+        if (language == 'en') {
+            window.location.href = 'https://translate.google.com/translate?hl=en&sl=pt&u=' + encodeURIComponent(url);
+        } else if (language == 'pt') {
+            window.location.href = url;
+        }
+    }
+</script>
+
 </head>
 
 <body>
@@ -66,7 +78,8 @@
     <option value="pt" selected>Português &nbsp;&nbsp;</option>
     <option value="en">Inglês &nbsp;&nbsp;</option>
 </select>
-</select>
+
+
 
                                     </div>
                                 </div>
@@ -1118,3 +1131,4 @@ impactos ambientais, cumprimento da legislação vigente e apoio a projetos soci
 </body>
 
 </html>
+

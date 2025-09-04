@@ -47,10 +47,11 @@
             window.location.href = 'https://translate.google.com/translate?hl=en&sl=pt&u=' + encodeURIComponent(currentUrl);
         } else if (language === 'pt') {
             // Redireciona para a versão original em português
-            window.location.href = currentUrl.split('?')[0]; // Limpa o parâmetro de idioma
+            window.location.href = currentUrl.split('?')[0]; // Limpa qualquer parâmetro de idioma
         }
     }
 </script>
+
 
 
 
@@ -1102,12 +1103,7 @@ impactos ambientais, cumprimento da legislação vigente e apoio a projetos soci
 
     <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
 
-<script>
-    function translatePage() {
-        var language = document.getElementById("languageSelector").value;
-        google.translate.TranslateElement.prototype.onChange.call(google.translate.TranslateElement.prototype, language);
-    }
-</script>
+
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/jarallax.min.js"></script>
@@ -1135,6 +1131,7 @@ impactos ambientais, cumprimento da legislação vigente e apoio a projetos soci
 </body>
 
 </html>
+
 
 
 

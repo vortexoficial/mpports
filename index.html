@@ -149,17 +149,18 @@
                                                 <a href="#quemsomos">Quem Somos</a>
                                                 
                                             </li>
-                                            <li >
-                                                <a >Serviços </a>
-                                               <ul>
-    <li><a href="amarração.html">Amarração e Desamarração de Navio</a></li>
-    <li><a href="cerco-preventivo.html">Cerco Preventivo de Carga</a></li>
-    <li><a href="transporte-tripulante.html">Transporte de Passageiros</a></li>
-    <li><a href="amarração.html">Apoio em Resgate de Animal ao Mar</a></li>
-    <li><a href="limpezadecostado.html">Limpeza de Costado</a></li>
-</ul>
-
-                                            </li>
+                                            
+                                               <li class="dropdown">
+    <a>Serviços</a>
+  
+    <ul>
+        <li><a href="amarração.html">Amarração e Desamarração de Navio</a></li>
+        <li><a href="cerco-preventivo.html">Cerco Preventivo de Carga</a></li>
+        <li><a href="transporte-tripulante.html">Transporte de Passageiros</a></li>
+        <li><a href="amarração.html">Apoio em Resgate de Animal ao Mar</a></li>
+        <li><a href="limpezadecostado.html">Limpeza de Costado</a></li>
+    </ul>
+</li>
                                           
                                             
                                             <li><a href="#contato">Contato</a></li>
@@ -208,7 +209,7 @@
                         <div class="row clearfix">
                             <div class="col-xl-12">
                                 <div class="slider-one__single-content text-center">
-                                    <h3> MP Port Solutions</h3>
+                                    
                                     <h2>Soluções portuárias com <span style="color: #ff5e14;">excelência</span>, <span style="color: #ff5e14;">segurança</span> e <span style="color: #ff5e14;">eficiência</span>.</h2>
 
                                     <p>A MP Port Solutions é referência em apoio logístico e ambiental nos portos de<br>Santos e 
@@ -943,12 +944,26 @@ impactos ambientais, cumprimento da legislação vigente e apoio a projetos soci
             <!-- /.logo-box -->
             <div class="mobile-nav__container"></div>
             <!-- /.mobile-nav__container -->
+<div class="mobile-nav__language-selector">
+                <p style="color: #ff5e14; margin-bottom: 5px;">Idioma / Language</p>
+                <div class="select-box">
+                    <select id="languageSelectorMobile" onchange="translatePage()">
+                        <option value="pt" selected>Português&nbsp;&nbsp;&nbsp;</option>
+                        <option value="en">Inglês / English&nbsp;&nbsp;&nbsp;</option>
+                    </select>
+                </div>
+            </div>
 
+            <ul class="mobile-nav__contact list-unstyled">
             <ul class="mobile-nav__contact list-unstyled">
               
                 <li>
                     <i class="fa fa-phone" aria-hidden="true"></i>
-                    <a href="tel:666-888-0000">(12) 97405 2389</a>
+                    <a href=""><font size="3">(12) 97405 2389</font></a>
+                </li>
+                <li>
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                    <a href=""><font size="3">(13) 98863-0529</font></a> 
                 </li>
             </ul><!-- /.mobile-nav__contact -->
             <div class="mobile-nav__top"><br><br>
@@ -1049,50 +1064,8 @@ impactos ambientais, cumprimento da legislação vigente e apoio a projetos soci
         }
     });
 </script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<script type="text/javascript">
-    // Esta função é chamada pelo script do Google Translate após ele carregar
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-            pageLanguage: 'pt', // O idioma padrão do seu site (Português)
-            includedLanguages: 'en,pt', // Idiomas a oferecer (Inglês, Português)
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE, // Usa layout simples
-            autoDisplay: false // IMPORTANTE: Impede que o widget padrão do Google apareça
-        }, 'google_translate_element'); // Anexa ao nosso div oculto
-    }
 
-    // Esta função é chamada pelo evento onchange do SEU dropdown
-    function translatePage() {
-        var language = document.getElementById("languageSelector").value; // Obtém o código do idioma selecionado (pt ou en)
 
-        // Encontra o dropdown oculto do Google Translate
-        var googleTranslateCombo = document.querySelector('#google_translate_element select');
-
-        if (googleTranslateCombo) {
-            googleTranslateCombo.value = language; // Define o valor do dropdown do Google
-
-            // Dispara o evento 'change' no dropdown do Google para iniciar a tradução
-            var event;
-            if (typeof(Event) === 'function') {
-                event = new Event('change');
-            } else { // Fallback para navegadores mais antigos
-                event = document.createEvent('Event');
-                event.initEvent('change', true, true);
-            }
-            googleTranslateCombo.dispatchEvent(event);
-        } else {
-            console.error("Dropdown do Google Translate não encontrado.");
-        }
-    }
-
-    // Opcional: Garante que a seleção inicial corresponda ao idioma padrão
-    document.addEventListener('DOMContentLoaded', function() {
-       // Você poderia adicionar lógica aqui, se necessário, para sincronizar ao carregar,
-       // mas o Google Translate geralmente lida com o estado inicial com base no pageLanguage.
-       // Certifique-se de que a opção padrão do seu <select> corresponde a 'pt'.
-       document.getElementById('languageSelector').value = 'pt';
-    });
-</script>
 </body>
 
 </html>

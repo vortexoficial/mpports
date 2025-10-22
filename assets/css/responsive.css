@@ -1,3 +1,4 @@
+
 @media only screen and (min-width: 1200px) and (max-width: 1250px) {
 
     /**Main Header One **/
@@ -2136,20 +2137,29 @@ Update1.0
 }
 
 
+}
 
 
+/* ==========================================================================
+   PACOTE FINAL DE CORREÇÕES PARA O MOBILE (ESPAÇO E IDIOMA)
+   ========================================================================== */
 
+@media only screen and (max-width: 767px) {
 
+    /* 1. Diminui o espaço entre o menu e o texto do topo */
+    .slider-one-sec.style3 .slider-one__single {
+        padding: 60px 0 !important;
+        min-height: auto !important;
+    }
 
+    /* 2. Centraliza e ajusta o botão de idioma */
+    .mobile-nav__language-selector {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centraliza o botão embaixo do texto */
+    }
 
-
-
-
-
-
-
-
-
-
-
+    .mobile-nav__language-selector .selectpicker {
+        width: 200px !important; /* Aumenta a largura do retângulo */
+    }
 }

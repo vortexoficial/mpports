@@ -12699,3 +12699,153 @@ Faq One Faq
 .services-carousel .services-three__single h3 { font-size: 24px; /* ... */ }
 .services-carousel .services-three__single p { font-size: 17px; /* ... */ }
 /* ... (Fade, Media Queries, pointer-events, etc.) ... */
+
+/* --- INÍCIO DAS CORREÇÕES PARA MOBILE --- */
+
+@media (max-width: 767px) {
+    /* 1. Diminui o espaço entre o menu e o texto principal no mobile */
+    .slider-one__single-content {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    /* 2. Diminui a largura dos cards de serviço e centraliza */
+    .services-three .swiper-slide {
+        width: 90% !important; /* Ajusta a largura do contêiner do card */
+        float: none;
+        margin: 0 auto;
+    }
+
+    /* 2.1. Adiciona o efeito de degradê laranja nos cards de serviço */
+    .services-three__single {
+        background: linear-gradient(180deg, #ff7e41, #ff5e14);
+        padding: 30px 20px;
+        border-radius: 10px;
+        color: white; /* Garante que o texto fique legível */
+        height: 100%; /* Garante que todos os cards tenham a mesma altura */
+    }
+    .services-three__single h3 a,
+    .services-three__single p,
+    .services-three__single .btn-box a {
+        color: white; /* Garante que os links e textos dentro do card fiquem brancos */
+    }
+    .services-three__single .btn-box a span {
+        color: white !important; /* Força a cor do ícone da seta */
+    }
+
+    /* 3. Estiliza o botão de expansão dos submenus no menu mobile */
+    .mobile-nav__container .main-menu__list li.dropdown {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .mobile-nav__container .main-menu__list li.dropdown > a {
+        flex-grow: 1; /* Faz o link ocupar o espaço disponível */
+    }
+    .mobile-nav__container .submenu-toggler {
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        color: white;
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+    .mobile-nav__container .submenu-toggler.active {
+        transform: rotate(180deg);
+    }
+    .mobile-nav__container .main-menu__list li ul {
+        display: none; /* Esconde o submenu por padrão */
+        width: 100%;
+        padding-left: 20px; /* Adiciona um recuo para os itens do submenu */
+        background-color: rgba(0,0,0,0.2);
+    }
+
+
+    /* 4. Estiliza o seletor de idioma no menu mobile */
+    .mobile-nav__language-selector {
+        padding: 20px;
+    }
+    .mobile-nav__language-selector select {
+        width: 100%;
+        background-color: #333;
+        color: white;
+        border: 1px solid #555;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+}
+/* --- FIM DAS CORREÇÕES PARA MOBILE --- */
+
+/* --- INÍCIO DA CORREÇÃO DE EMPILHAMENTO DO MENU MOBILE --- */
+
+@media (max-width: 767px) {
+    /* Garante que a área de conteúdo do menu mobile use flexbox em coluna */
+    .mobile-nav__content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    /* Faz o container dos links do menu ocupar o espaço necessário */
+    .mobile-nav__container {
+        flex-grow: 1;
+    }
+    
+    /* Organiza a parte inferior do menu */
+    .mobile-nav__language-selector,
+    .mobile-nav__contact,
+    .mobile-nav__top {
+        /* Remove qualquer propriedade de posicionamento ou flutuação que cause o bug */
+        position: static;
+        float: none;
+        
+        /* Define como blocos de largura total */
+        display: block;
+        width: 100%;
+        
+        /* Centraliza o conteúdo de cada bloco */
+        text-align: center;
+        
+        /* Adiciona um espaçamento para não ficarem colados */
+        padding: 15px 20px;
+    }
+
+    /* Ajusta o seletor de idioma */
+    .mobile-nav__language-selector {
+         padding-top: 25px;
+         border-top: 1px solid rgba(255, 255, 255, 0.1); /* Adiciona uma linha divisória */
+    }
+
+    .mobile-nav__language-selector select {
+        max-width: 200px;
+        margin: 0 auto; /* Centraliza o seletor */
+    }
+
+    /* Ajusta a lista de contatos (telefone) */
+    .mobile-nav__contact {
+        padding-bottom: 0;
+    }
+
+    .mobile-nav__contact li {
+        display: inline-flex; /* Alinha o ícone e o número */
+        align-items: center;
+        font-size: 1.1rem; /* Aumenta um pouco a fonte */
+    }
+
+    .mobile-nav__contact li i {
+        margin-right: 10px; /* Espaço entre o ícone e o texto */
+    }
+
+    /* Ajusta o container das redes sociais */
+    .mobile-nav__top {
+        padding-top: 15px;
+        padding-bottom: 25px;
+    }
+}
+
+/* --- FIM DA CORREÇÃO DE EMPILHAMENTO DO MENU MOBILE --- */

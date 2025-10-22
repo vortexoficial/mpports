@@ -37,28 +37,11 @@
     <!-- template styles -->
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
-<script type="text/javascript">
-    function translatePage() {
-        var language = document.getElementById("languageSelector").value;
-        var currentUrl = window.location.href;
-
-        if (language === 'en') {
-            // Redireciona para a versão traduzida em inglês do Google Translate
-            window.location.href = 'https://translate.google.com/translate?hl=en&sl=pt&u=' + encodeURIComponent(currentUrl);
-        } else if (language === 'pt') {
-            // Redireciona para a versão original em português
-            window.location.href = currentUrl.split('?')[0]; // Limpa qualquer parâmetro de idioma
-        }
-    }
-</script>
-
-
-
-
+    <link rel="stylesheet" href="assets/css/scrollbar.css" />
 </head>
 
 <body>
-
+<div id="google_translate_element" style="display:none;"></div>
     <!--Start Preloader-->
     <div class="preloader">
         <div class="loader"></div>
@@ -79,13 +62,11 @@
                             <div class="left">
                                 <div class="location-box">
                                     <div class="select-box">
-                              <select id="languageSelector" onchange="translatePage()">
+                               <select id="languageSelector" onchange="translatePage()">
     <option value="pt" selected>Português &nbsp;&nbsp;</option>
     <option value="en">Inglês &nbsp;&nbsp;</option>
 </select>
-
-
-
+</select>
 
                                     </div>
                                 </div>
@@ -165,23 +146,23 @@
                                                
                                             </li>
                                             <li >
-                                                <a href="#">Quem Somos</a>
+                                                <a href="#quemsomos">Quem Somos</a>
                                                 
                                             </li>
                                             <li >
                                                 <a >Serviços </a>
                                                <ul>
-    <li><a href="#">Amarração e Desamarração de Navio</a></li>
-    <li><a href="#">Cerco Preventivo de Carga</a></li>
-    <li><a href="#">Transporte de Passageiros</a></li>
-    <li><a href="#">Apoio em Resgate de Animal ao Mar</a></li>
-    <li><a href="#">Limpeza de Costado</a></li>
+    <li><a href="amarração.html">Amarração e Desamarração de Navio</a></li>
+    <li><a href="cerco-preventivo.html">Cerco Preventivo de Carga</a></li>
+    <li><a href="transporte-tripulante.html">Transporte de Passageiros</a></li>
+    <li><a href="amarração.html">Apoio em Resgate de Animal ao Mar</a></li>
+    <li><a href="limpezadecostado.html">Limpeza de Costado</a></li>
 </ul>
 
                                             </li>
                                           
                                             
-                                            <li><a href="contact.html">Contato</a></li>
+                                            <li><a href="#contato">Contato</a></li>
                                         </ul>
                                     </div>
                                 </nav>
@@ -247,7 +228,7 @@ segurança, qualidade e responsabilidade socioambiental.</p>
         </section>
         <!--End Slider One Sec-->
 
-     <section class="services-three">
+<section class="services-three">
     <div class="shape1"><img src="assets/images/shapes/services-v3-shape1.png" alt="#"></div>
     <div class="shape2 rotate-me"><img src="assets/images/update1.0/services-v3-shape2.png" alt="#"></div>
     <div class="container">
@@ -264,92 +245,74 @@ segurança, qualidade e responsabilidade socioambiental.</p>
             </div>
         </div>
 
-        <div class="row">
-            <!-- Start Services One Single -->
-            <div class="col-xl-3 col-lg-6 col-md-6">
-                <div class="services-three__single active">
-                    <div class="services-three__single__bg" style="background-image: url(assets/images/services/services-v1-bg.jpg);"></div>
-                    <div class="services-three__single-icon">
-                        <img src="assets/images/icon/icone1.png" alt="Amarração & Desamarração de Navios"> <!-- Ícone em PNG -->
-                    </div>
-                    <h3><a href="general-contracting.html">Amarração &<br>Desamarração de Navios</a></h3>
-                    <p>Realizamos amarração e desamarração de navios com total segurança e eficiência.</p>
-                    <div class="btn-box">
-                        <a href="general-contracting.html"><span class="icon-right-arrow"></span></a>
+        <div class="swiper-container services-carousel">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <div class="services-three__single">
+                        <div class="services-three__single-icon">
+                            <img src="assets/images/icon/icone1.png" alt="Amarração & Desamarração de Navios">
+                        </div>
+                        <h3><a href="amarração.html">Amarração &<br>Desamarração de Navios</a></h3>
+                        <p>Realizamos amarração e desamarração de navios com total segurança e eficiência.</p>
+                        <div class="btn-box">
+                            <a href="amarração.html">saiba mais &emsp;<span class="icon-right-arrow"></span></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- End Services One Single -->
-
-            <!-- Start Services One Single -->
-            <div class="col-xl-3 col-lg-6 col-md-6">
-                <div class="services-three__single active">
-                    <div class="services-three__single__bg" style="background-image: url(assets/images/services/services-v1-bg.jpg);"></div>
-                    <div class="services-three__single-icon">
-                        <img src="assets/images/icon/icone2.png" alt="Cerco Preventivo de Carga"> <!-- Ícone em PNG -->
-                    </div>
-                    <h3><a href="general-contracting.html">Cerco<br>Preventivo<br>de Carga</a></h3>
-                    <p>Oferecemos cerco preventivo de carga para garantir a proteção e segurança.</p>
-                    <div class="btn-box">
-                        <a href="general-contracting.html"><span class="icon-right-arrow"></span></a>
+                <div class="swiper-slide">
+                    <div class="services-three__single">
+                        <div class="services-three__single-icon">
+                            <img src="assets/images/icon/icone2.png" alt="Cerco Preventivo de Carga">
+                        </div>
+                        <h3><a href="cerco-preventivo.html">Cerco<br>Preventivo<br>de Carga</a></h3>
+                        <p>Oferecemos cerco preventivo de carga para garantir a proteção e segurança.</p>
+                        <div class="btn-box">
+                            <a href="cerco-preventivo.html">saiba mais&emsp; <span class="icon-right-arrow"></span></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- End Services One Single -->
-
-            <!-- Start Services One Single -->
-            <div class="col-xl-3 col-lg-6 col-md-6">
-                <div class="services-three__single active">
-                    <div class="services-three__single__bg" style="background-image: url(assets/images/services/services-v1-bg.jpg);"></div>
-                    <div class="services-three__single-icon">
-                        <img src="assets/images/icon/icone3.png" alt="Transporte de Tripulantes"> <!-- Ícone em PNG -->
-                    </div>
-                    <h3><a href="general-contracting.html">Serviço<br>Transporte de<br>Tripulantes</a></h3>
-                    <p>Realizamos o transporte seguro e eficiente de tripulantes em embarcações.</p>
-                    <div class="btn-box">
-                        <a href="general-contracting.html"><span class="icon-right-arrow"></span></a>
+                <div class="swiper-slide">
+                    <div class="services-three__single">
+                        <div class="services-three__single-icon">
+                            <img src="assets/images/icon/icone3.png" alt="Transporte de Tripulantes">
+                        </div>
+                        <h3><a href="transporte-tripulante.html">Serviço<br>Transporte de<br>Tripulantes</a></h3>
+                        <p>Realizamos o transporte seguro e eficiente de tripulantes em embarcações.</p>
+                        <div class="btn-box">
+                            <a href="transporte-tripulante.html">saiba mais &emsp;<span class="icon-right-arrow"></span></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- End Services One Single -->
-
-            <!-- Start Services One Single -->
-            <div class="col-xl-3 col-lg-6 col-md-6">
-                <div class="services-three__single active">
-                    <div class="services-three__single__bg" style="background-image: url(assets/images/services/services-v1-bg.jpg);"></div>
-                    <div class="services-three__single-icon">
-                        <img src="assets/images/icon/icone4.png" alt="Limpeza de Costado"> <!-- Ícone em PNG -->
-                    </div>
-                    <h3><a href="general-contracting.html">Serviço<br>Limpeza de<br>Costado</a></h3>
-                    <p>Realizamos serviços de limpeza de costado de embarcações com alta qualidade.</p>
-                    <div class="btn-box">
-                        <a href="general-contracting.html"><span class="icon-right-arrow"></span></a>
+                <div class="swiper-slide">
+                    <div class="services-three__single">
+                        <div class="services-three__single-icon">
+                            <img src="assets/images/icon/icone4.png" alt="Limpeza de Costado">
+                        </div>
+                        <h3><a href="limpezadecostado.html">Serviço<br>Limpeza de<br>Costado</a></h3>
+                        <p>Realizamos serviços de limpeza de costado de embarcações com alta qualidade.</p>
+                        <div class="btn-box">
+                            <a href="limpezadecostado.html">saiba mais &emsp;<span class="icon-right-arrow"></span></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- End Services One Single -->
-
-            <!-- Start Services One Single -->
-            <div class="col-xl-3 col-lg-6 col-md-6">
-                <div class="services-three__single active">
-                    <div class="services-three__single__bg" style="background-image: url(assets/images/services/services-v1-bg.jpg);"></div>
-                    <div class="services-three__single-icon">
-                        <img src="assets/images/icon/icone5.png" alt="Apoio ao Resgate de Animais Marinhos"> <!-- Ícone em PNG -->
-                    </div>
-                    <h3><a href="general-contracting.html">Apoio ao Resgate<br>de Animais<br>Marinhos</a></h3>
-                    <p>Oferecemos apoio completo ao resgate de animais marinhos em perigo.</p>
-                    <div class="btn-box">
-                        <a href="general-contracting.html"><span class="icon-right-arrow"></span></a>
+                <div class="swiper-slide">
+                     <div class="services-three__single">
+                        <div class="services-three__single-icon">
+                            <img src="assets/images/icon/icone5.png" alt="Apoio ao Resgate de Animais Marinhos">
+                        </div>
+                        <h3><a href="resgatedeanimais.html">Apoio ao Resgate<br>de Animais<br>Marinhos</a></h3>
+                        <p>Oferecemos apoio completo ao resgate de animais marinhos em perigo.</p>
+                        <div class="btn-box">
+                            <a href="resgatedeanimais.html">saiba mais &emsp;<span class="icon-right-arrow"></span></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- End Services One Single -->
-        </div><br><div class="centralizada">
-  Atendemos 24 horas por dia, 7 dias por semana.
-</div>
-    </div>
-</section>
-
+                </div> </div> <br>
+        <div class="centralizada">
+            Atendemos 24 horas por dia, 7 dias por semana.
+        </div>
+    </div> </section>
 
 <!--Start Work Perfomance One Sec-->
         <section class="work-perfomance-one-sec">
@@ -528,101 +491,7 @@ impactos ambientais, cumprimento da legislação vigente e apoio a projetos soci
 </section>
 <!--End Why Choose Two Sec-->
 
-<section class="services-details custom-services">
-    <div class="container">
-        <div class="sec-title text-center"><br><br>
-            <h2 class="sec-title__title"><b>NOSSOS SERVIÇOS:</b></h2>
-            <p class="sec-title__text">Conheça mais sobre as soluções especializadas que oferecemos, com total segurança e eficiência em todas as operações.</p>
-        </div>
 
-        <div class="row">
-            <!-- Service 1 -->
-            <div class="col-xl-12 col-lg-12 col-md-12">
-                <div class="service-detail d-flex flex-wrap align-items-center" style="border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px; background-color: #fff; margin-bottom: 30px;">
-                    <!-- Image Left -->
-                    <div class="service-img-box" style="flex: 1; max-width: 45%; padding-right: 20px;">
-                        <img src="assets/images/services/services-v1-bg.jpg" alt="Amarração de Navios" style="width: 100%; border-radius: 10px;">
-                    </div>
-                    <!-- Content Right -->
-                    <div class="service-content" style="flex: 2; padding-left: 20px;">
-                        <h3>Amarração & Desamarração de Navios</h3>
-                        <p>Realizamos amarração e desamarração de navios com total segurança e eficiência. Este serviço é essencial para garantir a segurança no processo de atracação e desatracação, minimizando riscos durante as manobras de navios em portos. Com nossa equipe altamente especializada e equipamentos modernos, conseguimos realizar esses procedimentos de forma ágil, segura e em qualquer tipo de embarcação, independentemente de seu porte ou complexidade.</p>
-                        <br>
-                        <a href="service-details.html" class="thm-btn-service" style="text-decoration: none;">Realizar Orçamento</a><br><br>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Service 2 -->
-            <div class="col-xl-12 col-lg-12 col-md-12">
-                <div class="service-detail d-flex flex-wrap align-items-center" style="border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px; background-color: #fff; margin-bottom: 30px;">
-                    <!-- Content Left -->
-                    <div class="service-content" style="flex: 2; padding-right: 20px;">
-                        <h3>Cerco Preventivo de Carga</h3>
-                        <p>O cerco preventivo de carga é um serviço crucial para garantir a proteção de mercadorias durante o transporte. Ele consiste na instalação de barreiras físicas e outras medidas de segurança ao redor da carga, com o objetivo de evitar roubos, furtos ou danos durante o processo de carga e descarga. Esse serviço é fundamental para empresas que operam com produtos de alto valor ou cargas sensíveis. Trabalhamos com as melhores práticas de segurança e tecnologias de monitoramento para assegurar a integridade dos produtos.</p>
-                        <br>
-                        <a href="service-details.html" class="thm-btn-service" style="text-decoration: none;">Realizar Orçamento</a><br><br>
-                    </div>
-                    <!-- Image Right -->
-                    <div class="service-img-box" style="flex: 1; max-width: 45%; padding-left: 20px;">
-                        <img src="assets/images/services/services-v1-bg.jpg" alt="Cerco Preventivo de Carga" style="width: 100%; border-radius: 10px;">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Service 3 -->
-            <div class="col-xl-12 col-lg-12 col-md-12">
-                <div class="service-detail d-flex flex-wrap align-items-center" style="border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px; background-color: #fff; margin-bottom: 30px;">
-                    <!-- Image Left -->
-                    <div class="service-img-box" style="flex: 1; max-width: 45%; padding-right: 20px;">
-                        <img src="assets/images/services/services-v1-bg.jpg" alt="Transporte de Tripulantes" style="width: 100%; border-radius: 10px;">
-                    </div>
-                    <!-- Content Right -->
-                    <div class="service-content" style="flex: 2; padding-left: 20px;">
-                        <h3>Transporte de Tripulantes</h3>
-                        <p>Oferecemos um serviço eficiente e seguro de transporte de tripulantes entre portos e embarcações. Este serviço é essencial para a logística de tripulação em navios, especialmente em locais remotos ou de difícil acesso. Utilizamos embarcações de alto desempenho, com tripulação treinada para garantir a segurança e o conforto durante o trajeto. Nossa prioridade é otimizar o tempo e a segurança dos tripulantes, sem comprometer o cumprimento das normas regulatórias do setor marítimo.</p>
-                        <br>
-                        <a href="service-details.html" class="thm-btn-service" style="text-decoration: none;">Realizar Orçamento</a><br><br>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Service 4 -->
-            <div class="col-xl-12 col-lg-12 col-md-12">
-                <div class="service-detail d-flex flex-wrap align-items-center" style="border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px; background-color: #fff; margin-bottom: 30px;">
-                    <!-- Content Left -->
-                    <div class="service-content" style="flex: 2; padding-right: 20px;">
-                        <h3>Limpeza de Costado</h3>
-                        <p>A limpeza de costado é uma tarefa essencial para a manutenção de embarcações. Ela visa remover sujeiras, incrustações e organismos marinhos que se acumulam no casco do navio. Esse procedimento ajuda a prevenir a corrosão e garantir a eficiência da navegação. Utilizamos equipamentos de última geração para realizar a limpeza de forma eficiente, sem danificar o casco da embarcação. O serviço é realizado por profissionais experientes, garantindo a qualidade e a segurança do trabalho.</p>
-                        <br>
-                        <a href="service-details.html" class="thm-btn-service" style="text-decoration: none;">Realizar Orçamento</a><br><br>
-                    </div>
-                    <!-- Image Right -->
-                    <div class="service-img-box" style="flex: 1; max-width: 45%; padding-left: 20px;">
-                        <img src="assets/images/services/services-v1-bg.jpg" alt="Limpeza de Costado" style="width: 100%; border-radius: 10px;">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Service 5 -->
-            <div class="col-xl-12 col-lg-12 col-md-12">
-                <div class="service-detail d-flex flex-wrap align-items-center" style="border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px; background-color: #fff; margin-bottom: 30px;">
-                    <!-- Image Left -->
-                    <div class="service-img-box" style="flex: 1; max-width: 45%; padding-right: 20px;">
-                        <img src="assets/images/services/services-v1-bg.jpg" alt="Apoio ao Resgate de Animais Marinhos" style="width: 100%; border-radius: 10px;">
-                    </div>
-                    <!-- Content Right -->
-                    <div class="service-content" style="flex: 2; padding-left: 20px;">
-                        <h3>Apoio ao Resgate de Animais Marinhos</h3>
-                        <p>Nosso serviço de apoio ao resgate de animais marinhos envolve a coordenação e execução de ações para resgatar animais em situações de risco, como encalhes, ferimentos ou envenenamentos. A equipe é composta por profissionais treinados em práticas de resgate e reabilitação de animais, trabalhando em parceria com órgãos ambientais e outras entidades responsáveis. O objetivo é garantir a saúde e o bem-estar dos animais, devolvendo-os ao seu habitat natural quando possível.</p>
-                        <br>
-                        <a href="service-details.html" class="thm-btn-service" style="text-decoration: none;">Realizar Orçamento</a><br><br>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 
 
@@ -651,7 +520,7 @@ impactos ambientais, cumprimento da legislação vigente e apoio a projetos soci
             <!--End About Three Img-->
 
             <!--Start About Three Content-->
-            <div class="col-xl-6">
+            <div class="col-xl-6" id="quemsomos">
                 <div class="about-three__content">
                     <div class="sec-title">
                         <div class="sec-title__tagline">
@@ -871,7 +740,7 @@ impactos ambientais, cumprimento da legislação vigente e apoio a projetos soci
 
 
        <!--Start Contact Page-->
-        <section class="contact-page">
+        <section class="contact-page" id="contato">
             <div class="container">
                 <div class="row">
                     <!--Start Contact Page Content-->
@@ -1021,11 +890,11 @@ impactos ambientais, cumprimento da legislação vigente e apoio a projetos soci
                                 <div class="footer-widget__column footer-widget__services">
                                     <h2 class="footer-widget__title">Serviços</h2>
                                     <ul class="footer-widget__services-list">
-                                        <li class="footer-widget__services-list-item"><a href="#">Amarração e Desamarração de Navios</a></li>
-                                        <li class="footer-widget__services-list-item"><a href="#">Cerco Preventivo de Carga</a></li>
-                                        <li class="footer-widget__services-list-item"><a href="#">Transporte de Tripulantes</a></li>
-                                        <li class="footer-widget__services-list-item"><a href="#">Limpeza de Costado</a></li>
-                                        <li class="footer-widget__services-list-item"><a href="#">Apoio ao Resgate de Animais Marinhos</a></li>
+                                        <li class="footer-widget__services-list-item"><a href="amarração.html">Amarração e Desamarração de Navios</a></li>
+                                        <li class="footer-widget__services-list-item"><a href="cerco-preventivo.html">Cerco Preventivo de Carga</a></li>
+                                        <li class="footer-widget__services-list-item"><a href="transporte-tripulante.html">Transporte de Tripulantes</a></li>
+                                        <li class="footer-widget__services-list-item"><a href="limpezadecostado.html">Limpeza de Costado</a></li>
+                                        <li class="footer-widget__services-list-item"><a href="resgatedeanimais.html">Apoio ao Resgate de Animais Marinhos</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -1104,7 +973,12 @@ impactos ambientais, cumprimento da legislação vigente e apoio a projetos soci
 
     <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
 
-
+<script>
+    function translatePage() {
+        var language = document.getElementById("languageSelector").value;
+        google.translate.TranslateElement.prototype.onChange.call(google.translate.TranslateElement.prototype, language);
+    }
+</script>
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/jarallax.min.js"></script>
@@ -1128,12 +1002,98 @@ impactos ambientais, cumprimento da legislação vigente e apoio a projetos soci
 
     <!-- template js -->
     <script src="assets/js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // --- Services Carousel ---
+        if (document.querySelector('.services-carousel')) {
+            const servicesSwiper = new Swiper('.services-carousel', {
+                // Parâmetros principais
+                loop: true, // Loop infinito ESSENCIAL para movimento contínuo
+                slidesPerView: 1, // Padrão para mobile
+                spaceBetween: 20, // Espaço entre slides
+                centeredSlides: true, // Centraliza o slide ativo
+                grabCursor: true, // Mostra cursor de "agarrar" para indicar arrasto
+                allowTouchMove: true, // Permite arrastar
 
+                // Autoplay contínuo (Estilo Marquee)
+                autoplay: {
+                    delay: 0, // Sem pausa entre as transições
+                    disableOnInteraction: false, // Continua após interação
+                    pauseOnMouseEnter: true, // Pausa ao passar o mouse em cima
+                    // reverseDirection: false, // Direção: Esquerda para Direita (Padrão)
+                },
+                speed: 6000, // VELOCIDADE da transição (tempo que leva para um slide atravessar). MAIOR = MAIS LENTO. Ajuste!
+
+                // Breakpoints responsivos
+                breakpoints: {
+                    // Telas a partir de 768px (Tablets)
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 30,
+                        centeredSlides: false, // Pode ficar melhor não centralizado com 2
+                    },
+                    // Telas a partir de 992px (Desktops pequenos)
+                    992: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                        centeredSlides: true, // Centraliza com 3
+                    },
+                    // Telas a partir de 1200px (Desktops maiores)
+                    1200: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                        centeredSlides: true,
+                    }
+                },
+            });
+        }
+    });
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script type="text/javascript">
+    // Esta função é chamada pelo script do Google Translate após ele carregar
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'pt', // O idioma padrão do seu site (Português)
+            includedLanguages: 'en,pt', // Idiomas a oferecer (Inglês, Português)
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE, // Usa layout simples
+            autoDisplay: false // IMPORTANTE: Impede que o widget padrão do Google apareça
+        }, 'google_translate_element'); // Anexa ao nosso div oculto
+    }
+
+    // Esta função é chamada pelo evento onchange do SEU dropdown
+    function translatePage() {
+        var language = document.getElementById("languageSelector").value; // Obtém o código do idioma selecionado (pt ou en)
+
+        // Encontra o dropdown oculto do Google Translate
+        var googleTranslateCombo = document.querySelector('#google_translate_element select');
+
+        if (googleTranslateCombo) {
+            googleTranslateCombo.value = language; // Define o valor do dropdown do Google
+
+            // Dispara o evento 'change' no dropdown do Google para iniciar a tradução
+            var event;
+            if (typeof(Event) === 'function') {
+                event = new Event('change');
+            } else { // Fallback para navegadores mais antigos
+                event = document.createEvent('Event');
+                event.initEvent('change', true, true);
+            }
+            googleTranslateCombo.dispatchEvent(event);
+        } else {
+            console.error("Dropdown do Google Translate não encontrado.");
+        }
+    }
+
+    // Opcional: Garante que a seleção inicial corresponda ao idioma padrão
+    document.addEventListener('DOMContentLoaded', function() {
+       // Você poderia adicionar lógica aqui, se necessário, para sincronizar ao carregar,
+       // mas o Google Translate geralmente lida com o estado inicial com base no pageLanguage.
+       // Certifique-se de que a opção padrão do seu <select> corresponde a 'pt'.
+       document.getElementById('languageSelector').value = 'pt';
+    });
+</script>
 </body>
 
 </html>
-
-
-
-
 

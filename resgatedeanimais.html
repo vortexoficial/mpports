@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Apoio ao Resgate de Animais Marinhos - MP PORT SOLUTIONS</title>
+    <meta name="description" content="Oferecemos apoio logístico completo com embarcações e equipe para o resgate de animais marinhos em perigo. Resposta rápida em áreas portuárias." />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png" />
+    <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/animate.min.css" />
+    <link rel="stylesheet" href="assets/css/custom-animate.css" />
+    <link rel="stylesheet" href="assets/vendors/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/jarallax.css" />
+    <link rel="stylesheet" href="assets/css/jquery.magnific-popup.css" />
+    <link rel="stylesheet" href="assets/css/odometer.min.css" />
+    <link rel="stylesheet" href="assets/css/swiper.min.css" />
+    <link rel="stylesheet" href="assets/vendors/icomoon-icons/style.css">
+    <link rel="stylesheet" href="assets/vendors/reey-font/stylesheet.css" />
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="assets/css/vegas.min.css" />
+    <link rel="stylesheet" href="assets/css/nice-select.css" />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="assets/css/scrollbar.css" />
+    
+    <style>
+        /* --- CORREÇÃO PARA MOBILE --- */
+        @media (max-width: 991px) {
+            .service-hero-banner {
+                padding-top: 120px; /* Adiciona espaço no topo APENAS no mobile */
+            }
+        }
+        /* --- FIM DA CORREÇÃO --- */
+
+        /* Regras de posicionamento apenas para DESKTOP (telas > 991px) */
+        @media (min-width: 992px) {
+            .main-header-three__bottom {
+                position: relative;
+                z-index: 10;
+                bottom: 0px;
+            }
+            .main-header-three__wrapper {
+                margin-bottom: -44px; /* Puxa o banner para cima */
+            }
+            .service-hero-banner {
+                padding-top: 140px; /* Empurra o conteúdo do banner para baixo */
+            }
+        }
+
+        .service-hero-banner {
+            position: relative;
+            padding-bottom: 120px;
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: #ffffff;
+        }
+        .service-hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6); 
+            z-index: 1;
+        }
+        .service-hero-banner .container {
+            position: relative;
+            z-index: 2;
+        }
+        .service-hero-banner h1 {
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+        .service-hero-banner h1 span {
+            color: #ff5e14;
+        }
+        .service-hero-banner p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #e0e0e0;
+        }
+        .service-features-section {
+            padding: 80px 0 40px;
+            background-color: #f7f7f7;
+        }
+        .feature-box {
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .feature-box .icon {
+            font-size: 45px;
+            color: #ff5e14;
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+        .feature-box h3 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #272727;
+        }
+        .services-details__content-img1 img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+        .services-details__content-text-two-list li {
+            display: flex;
+            align-items: flex-start; 
+        }
+        .services-details__content-text-two-list li .icon {
+            margin-right: 15px; 
+            flex-shrink: 0; 
+        }
+        .services-details__content-text-two-list .icon-tick::before {
+            color: #ff5e14;
+        }
+        .cta-button-container {
+            margin-top: 40px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+    <div class="page-wrapper">
+
+        <header class="main-header main-header-three clearfix" style="background-color: black;">
+            <div class="main-header-three__wrapper">
+
+                <div class="main-header-three__top clearfix">
+                    <div class="container">
+                        <div class="main-header-three__top-inner">
+                            <div class="left">
+                                <div class="location-box">
+                                    <div class="select-box">
+                                        <select id="languageSelector" onchange="translatePage()">
+                                            <option value="pt" selected>Português &nbsp;&nbsp;</option>
+                                            <option value="en">Inglês &nbsp;&nbsp;</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="right">
+                                <div class="title">
+                                    <p>Siga a MP nas redes sociais</p>
+                                </div>
+
+                                <ul class="social-links">
+                                    <li><a href="https://www.facebook.com/profile.php?id=100078905144695"><span class="fab fa-facebook-f"></span></a></li>
+                                    <li><a href="https://www.instagram.com/mp_portsolutions/"><span class="fab fa-instagram"></span></a></li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main-header-three__middle">
+                    <div class="container">
+                        <div class="main-header-three__middle-inner">
+                            <div class="logo-box">
+                                <a href="index.html"><img src="assets/images/resources/stricky-logo.png" alt="#"></a>
+                            </div>
+
+                            <div class="contact-info">
+                                <ul>
+                                    <li>
+                                        <div class="icon-box">
+                                            <span class="icon-phone-call"></span>
+                                        </div>
+                                        <div class="text-box">
+                                            <h3 style="color: #ff5e14;">Contatos:</h3>
+                                            <p class="number" style="color: aliceblue;">(13) <strong>98863-0529</strong> - (13)<strong> 97405-2389</strong></p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="icon-box">
+                                            <span class="fas fa-clock"></span> 
+                                        </div>
+                                        <div class="text-box">
+                                            <p class="esc" style="color: aliceblue;">Atendemos <b>24h</b>,<br><b>7 Dias</b> por semana</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main-header-three__bottom">
+                    <div class="container">
+                        <div class="main-header-three__bottom-inner">
+
+                            <div class="main-header-one__bottom-left">
+                                <nav class="main-menu main-menu--1">
+                                    <div class="main-menu__inner">
+                                        <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
+                                        <div class="stricky-one-logo">
+                                            <div class="logo">
+                                                <a href="index.html"><img src="assets/images/resources/stricky-logo.png" alt=""></a>
+                                            </div>
+                                        </div>
+
+                                        <ul class="main-menu__list">
+                                            <li><a href="index.html">início</a></li>
+                                            <li><a href="index.html#quemsomos">Quem Somos</a></li>
+                                            <li class="current">
+                                                <a>Serviços </a>
+                                                <ul>
+                                                    <li><a href="amarração.html">Amarração e Desamarração de Navio</a></li>
+                                                    <li><a href="cerco-preventivo.html">Cerco Preventivo de Carga</a></li>
+                                                    <li><a href="transporte-tripulante.html">Transporte de Tripulantes</a></li>
+                                                    <li><a href="resgatedeanimais.html">Resgate de Animal ao Mar</a></li>
+                                                    <li><a href="limpezadecostado.html">Limpeza de Costado</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="index.html#contato">Contato</a></li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+
+                            <div class="main-header-one__bottom-right">
+                                <span class="fas fa-anchor" style="color: aliceblue; font-size: 30px;"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </header>
+        <div class="stricky-header stricked-menu main-menu">
+            <div class="sticky-header__content"></div>
+        </div>
+        
+        <section class="service-hero-banner" style="background-image: url(assets/bg.jpg);"> 
+            <div class="container">
+                <h1>Apoio ao Resgate de <span>Animais Marinhos</span></h1>
+                <p>Oferecemos apoio completo ao resgate de animais marinhos em perigo.</p>
+            </div>
+        </section>
+
+        <section class="services-details-page">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-8 col-lg-7">
+                        <div class="services-details__content">
+                            
+                            <div class="services-details__content-img1">
+                                <img src="assets/amarracao.jpg" alt="Embarcação de apoio para resgate de animal marinho" /> 
+                            </div>
+                            
+                            <div class="services-details__content-text-one"><br>
+                                <h2>Resposta Rápida para a Vida Marinha</h2><br>
+                                <p class="text1">A presença de animais marinhos em perigo, seja por encalhe, ferimentos ou aprisionamento em redes, exige uma ação imediata e especializada. A MP Port Solutions oferece um serviço de apoio logístico essencial para operações de resgate, disponibilizando embarcações e tripulação preparada para atuar em conjunto com órgãos ambientais e biólogos.</p>
+                                <p class="text2">Nosso compromisso é fornecer o suporte necessário para que o resgate seja realizado da forma mais segura e ágil possível, tanto para o animal quanto para as equipes de salvamento. Atuamos como um braço operacional no mar, facilitando o acesso, a contenção e o transporte seguro do animal para o local de reabilitação.</p>
+                            </div><br>
+
+                            <div class="service-features-section">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4">
+                                        <div class="feature-box">
+                                            <div class="icon"><span class="fas fa-clock"></span></div>
+                                            <h3>Prontidão 24/7</h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4">
+                                        <div class="feature-box">
+                                            <div class="icon"><span class="fas fa-life-ring"></span></div>
+                                            <h3>Operação Segura</h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4">
+                                        <div class="feature-box">
+                                            <div class="icon"><span class="fas fa-users"></span></div>
+                                            <h3>Equipe de Apoio</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><br>
+
+                            <div class="services-details__content-text-two">
+                                <h3>Protocolos de Apoio e Logística</h3><br>
+                                <p>Entendemos a sensibilidade e a urgência dessas operações. Nossa frota está preparada para se adaptar às necessidades específicas de cada chamado, sempre priorizando o bem-estar do animal e a segurança da operação.</p>
+                                <br><ul class="services-details__content-text-two-list">
+                                    <li>
+                                        <div class="icon">
+                                            <span class="icon-tick"></span>
+                                        </div>
+                                        <div class="text">
+                                            <p>Embarcações rápidas para acesso imediato à área de ocorrência.</p>
+                                        </div>
+                                    </li><br>
+                                    <li>
+                                        <div class="icon">
+                                            <span class="icon-tick"></span>
+                                        </div>
+                                        <div class="text">
+                                            <p>Tripulação treinada em manobras de aproximação segura e apoio a biólogos.</p>
+                                        </div>
+                                    </li><br>
+                                    <li>
+                                        <div class="icon">
+                                            <span class="icon-tick"></span>
+                                        </div>
+                                        <div class="text">
+                                            <p>Comunicação direta com autoridades portuárias e ambientais para coordenação.</p>
+                                        </div>
+                                    </li><br>
+                                    <li>
+                                        <div class="icon">
+                                            <span class="icon-tick"></span>
+                                        </div>
+                                        <div class="text">
+                                            <p>Disponibilidade para transporte de equipamentos veterinários e equipes de reabilitação.</p>
+                                        </div>
+                                    </li><br>
+                                </ul>
+
+                                <div class="cta-button-container">
+                                    <a href="index.html#contato" class="thm-btn" data-text="Fazer Orçamento">Fazer Orçamento</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4 col-lg-5">
+                        <div class="services-details__sidebar">
+                            <div class="services-details__sidebar-single services-details-category">
+                                <div class="title">
+                                    <h2>Todos os Serviços</h2>
+                                </div>
+                                <ul class="services-details-category-list list-unstyled">
+                                    <li><a href="amarração.html">Amarração e Desamarração<span class="icon-right-arrow"></span></a></li>
+                                    <li><a href="cerco-preventivo.html">Cerco Preventivo de Carga<span class="icon-right-arrow"></span></a></li>
+                                    <li><a href="transporte-tripulante.html">Transporte de Tripulantes<span class="icon-right-arrow"></span></a></li>
+                                    <li class="active"><a href="resgatedeanimais.html">Resgate de Animal ao Mar<span class="icon-right-arrow"></span></a></li>
+                                    <li><a href="limpezadecostado.html">Limpeza de Costado<span class="icon-right-arrow"></span></a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="services-details__sidebar-single services-details-contact">
+                                <div class="services-details-contact-bg" style="background-image: url(assets/images/services/services-details-contact-bg.jpg);">
+                                </div>
+                                <div class="services-details-contact-content text-center">
+                                    <div class="icon">
+                                        <span class="icon-phone-call-1"></span>
+                                    </div>
+                                    <h2>Precisa de uma<br>solução portuária?</h2>
+                                    <p class="number"><a href="tel:13988630529">(13) 98863-0529</a></p>
+                                    <p class="email"><a href="mailto:commercial@mpportsolutions.com.br">commercial@mpportsolutions.com.br</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer class="footer-one-sec">
+            <div class="footer-one__pattern" style="background-image: url(assets/images/pattern/footer-v1-pattern.png);"></div>
+            <div class="footer-one__top">
+                <div class="footer-one__top-img" style="background-image:url(assets/images/resources/footer-v1-img3.png);"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="footer-one__top-inner">
+                                <div class="row">
+
+                                    <div class="col-xl-4 col-lg-6 col-md-6 wow animated fadeInUp" data-wow-delay="0.1s">
+                                        <div class="footer-widget__column footer-widget__about">
+                                            <div class="footer-widget__about-logo">
+                                                <a href="index.html"><img src="assets/images/resources/logo-1.png" alt=""></a>
+                                            </div>
+
+                                            <p class="footer-widget__about-text">A MP Port Solutions oferece soluções portuárias seguras, rápidas e sustentáveis, com foco em excelência operacional e compromisso com a responsabilidade ambiental.</p>
+
+                                            <div class="footer-widget__about-social-link">
+                                                <ul>
+                                                    <li>
+                                                        <a href="https://www.facebook.com/profile.php?id=100078905144695" target="_blank">
+                                                            <span class="first icon-facebook-app-symbol"></span>
+                                                            <span class="second icon-facebook-app-symbol"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.instagram.com/mp_portsolutions/" target="_blank">
+                                                            <span class="fab fa-instagram" style="font-size: 20px;"></span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-2 col-lg-6 col-md-6 wow animated fadeInUp" data-wow-delay="0.3s">
+                                        <div class="footer-widget__column footer-widget__services">
+                                            <h2 class="footer-widget__title">Serviços</h2>
+                                            <ul class="footer-widget__services-list">
+                                                <li class="footer-widget__services-list-item"><a href="amarração.html">Amarração e Desamarração de Navios</a></li>
+                                                <li class="footer-widget__services-list-item"><a href="cerco-preventivo.html">Cerco Preventivo de Carga</a></li>
+                                                <li class="footer-widget__services-list-item"><a href="transporte-tripulante.html">Transporte de Tripulantes</a></li>
+                                                <li class="footer-widget__services-list-item"><a href="limpezadecostado.html">Limpeza de Costado</a></li>
+                                                <li class="footer-widget__services-list-item"><a href="resgatedeanimais.html">Apoio ao Resgate de Animais Marinhos</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-one__bottom clearfix">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="footer-one__bottom-inner">
+                                <div class="footer-one__bottom-text">
+                                    <p>Copyright &copy;2025. Todos os direitos reservados à <a href="index.html">MP Port Solutions</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <div class="mobile-nav__wrapper">
+        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+        <div class="mobile-nav__content">
+            <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+            <div class="logo-box">
+                <a href="index.html" aria-label="logo image"><img src="assets/images/resources/logo-1.png" width="155" alt="" /></a>
+            </div>
+            <div class="mobile-nav__container"></div>
+            <ul class="mobile-nav__contact list-unstyled">
+                <li>
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                    <a href="tel:13988630529">(13) 98863 0529</a>
+                </li>
+            </ul>
+            <div class="mobile-nav__top"><br><br>
+                <div class="mobile-nav__social">
+                    <a href="https://www.facebook.com/profile.php?id=100078905144695" class="fab fa-facebook-square"></a>
+                    <a href="https://www.instagram.com/mp_portsolutions/" class="fab fa-instagram"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
+
+    <script>
+        function translatePage() {
+            var language = document.getElementById("languageSelector").value;
+            google.translate.TranslateElement.prototype.onChange.call(google.translate.TranslateElement.prototype, language);
+        }
+    </script>
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/jarallax.min.js"></script>
+    <script src="assets/js/jquery.ajaxchimp.min.js"></script>
+    <script src="assets/js/jquery.appear.min.js"></script>
+    <script src="assets/js/jquery.circle-progress.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/jquery.validate.min.js"></script>
+    <script src="assets/js/odometer.min.js"></script>
+    <script src="assets/js/swiper.min.js"></script>
+    <script src="assets/js/wow.js"></script>
+    <script src="assets/js/isotope.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/parallax.min.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/knob.js"></script>
+    <script src="assets/js/tilt.jquery.js"></script>
+    <script src="assets/js/jquery-sidebar-content.js"></script>
+    <script src="assets/js/vegas.min.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+
+    <script src="assets/js/script.js"></script>
+
+</body>
+
+</html>

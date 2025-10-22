@@ -402,15 +402,48 @@
                         alt="" /></a>
             </div>
             <div class="mobile-nav__container"></div>
-            <div class="mobile-nav__language-selector">
-                <p style="color: #ff5e14; margin-bottom: 5px;">Language / Idioma</p>
-                <div class="select-box">
-                    <select id="languageSelectorMobile" onchange="translatePage()">
-                        <option value="pt">Portuguese&nbsp;&nbsp;&nbsp;</option>
-                        <option value="en" selected>English&nbsp;&nbsp;&nbsp;</option>
-                    </select>
-                </div>
-            </div>
+           
+<div class="mobile-nav__language-selector">
+    <p style="color: #ff5e14; margin-bottom: 5px;">Idioma / Language</p>
+    <div class="select-box">
+        <select id="languageSelectorMobile" onchange="switchLanguageMobile()">
+            <option value="pt">Português&nbsp;&nbsp;&nbsp;</option>
+            <option value="en" selected>Inglês / English&nbsp;&nbsp;&nbsp;</option>
+        </select>
+    </div>
+</div>
+<script>
+    // Função para o seletor desktop
+    function switchLanguage() {
+        var selector = document.getElementById("languageSelector");
+        redirect(selector.value);
+    }
+    
+    // Função para o seletor mobile
+    function switchLanguageMobile() {
+        var selector = document.getElementById("languageSelectorMobile");
+        redirect(selector.value);
+    }
+
+    // Função unificada de redirecionamento (a lógica principal)
+    function redirect(selectedLang) {
+        // Pega o nome do arquivo atual (ex: cerco-preventivoen.html)
+        var currentPath = window.location.pathname;
+        var currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+
+        // Remove a extensão .html e qualquer sufixo 'en' para obter o nome base
+        // Se a página for 'cerco-preventivoen.html', baseName será 'cerco-preventivo'
+        var baseName = currentPage.replace(/\.html$/, '').replace(/en$/, '');
+        
+        if (selectedLang === "pt") {
+            // Se selecionar Português, redireciona para o arquivo base (ex: cerco-preventivo.html)
+            window.location.href = baseName + '.html'; 
+        } else if (selectedLang === "en") {
+            // Se selecionar Inglês, redireciona para o arquivo com o sufixo 'en' (ex: cerco-preventivoen.html)
+            window.location.href = baseName + 'en.html';
+        }
+    }
+</script>
 
             <ul class="mobile-nav__contact list-unstyled">
                 <ul class="mobile-nav__contact list-unstyled">

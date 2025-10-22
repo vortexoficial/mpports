@@ -477,6 +477,7 @@
             </div>
             </footer>
         </div>
+        
     <div class="mobile-nav__wrapper">
         <div class="mobile-nav__overlay mobile-nav__toggler"></div>
         <!-- /.mobile-nav__overlay -->
@@ -491,14 +492,47 @@
             <div class="mobile-nav__container"></div>
             <!-- /.mobile-nav__container -->
 <div class="mobile-nav__language-selector">
-                <p style="color: #ff5e14; margin-bottom: 5px;">Idioma / Language</p>
-                <div class="select-box">
-                    <select id="languageSelectorMobile" onchange="translatePage()">
-                        <option value="pt" selected>Português&nbsp;&nbsp;&nbsp;</option>
-                        <option value="en">Inglês / English&nbsp;&nbsp;&nbsp;</option>
-                    </select>
-                </div>
-            </div>
+    <p style="color: #ff5e14; margin-bottom: 5px;">Idioma / Language</p>
+    <div class="select-box">
+        <select id="languageSelectorMobile" onchange="switchLanguageMobile()">
+            <option value="pt" selected>Português&nbsp;&nbsp;&nbsp;</option>
+            <option value="en">Inglês / English&nbsp;&nbsp;&nbsp;</option>
+        </select>
+    </div>
+</div>
+<script>
+    // A função para o desktop precisa ser modificada para pegar o ID correto (languageSelector)
+    function switchLanguage() {
+        var selector = document.getElementById("languageSelector");
+        redirect(selector.value);
+    }
+    
+    // A função para o mobile precisa ser adicionada e pegar o ID correto (languageSelectorMobile)
+    function switchLanguageMobile() {
+        var selector = document.getElementById("languageSelectorMobile");
+        redirect(selector.value);
+    }
+
+    // Função unificada de redirecionamento (a lógica principal)
+    function redirect(selectedLang) {
+        // Pega o nome do arquivo atual (ex: cerco-preventivo.html)
+        var currentPath = window.location.pathname;
+        var currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+
+        // Remove a extensão .html e qualquer sufixo 'en' para obter o nome base
+        // Se a página for 'cerco-preventivoen.html', baseName será 'cerco-preventivo'
+        var baseName = currentPage.replace(/\.html$/, '').replace(/en$/, '');
+        
+        if (selectedLang === "pt") {
+            // Se selecionar Português, redireciona para o arquivo base (ex: cerco-preventivo.html)
+            window.location.href = baseName + '.html'; 
+        } else if (selectedLang === "en") {
+            // Se selecionar Inglês, redireciona para o arquivo com o sufixo 'en' (ex: cerco-preventivoen.html)
+            window.location.href = baseName + 'en.html';
+        }
+    }
+</script>
+
 
             <ul class="mobile-nav__contact list-unstyled">
             <ul class="mobile-nav__contact list-unstyled">
